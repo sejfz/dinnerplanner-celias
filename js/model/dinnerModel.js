@@ -7,10 +7,13 @@ var DinnerModel = function() {
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
+        var sGuest = "depends on button press";
 	}
 	
 	this.getNumberOfGuests = function() {
 		//TODO Lab 1
+        var getGuest = 0;
+        return getGuest;
 	}
 
 	//Returns the dish that is on the menu for selected type 
@@ -21,11 +24,15 @@ var DinnerModel = function() {
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		//TODO Lab 1
+        var allDish = dishes.getAttribute("name");
+        return allDish;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		//TODO Lab 1
+        var allIng = dishes.getAttribute("Ingredients");
+        return allIng;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
