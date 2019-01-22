@@ -33,6 +33,7 @@ var DinnerModel = function() {
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
+        for ()
         document.getElementById('SOMETHING').innerHTML = dishes.ingredients;
 		//TODO Lab 1
         
