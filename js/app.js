@@ -1,6 +1,9 @@
 $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
+    var container = $("#ingredView")
+    console.log(container);
+    var IngredientView = new ingredView(container, model);
 	
 	// And create the instance of ExampleView
 	// var exampleView = new ExampleView($("#exampleView"));
