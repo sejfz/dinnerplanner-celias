@@ -27,7 +27,7 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
     this.getFullMenu = function() {
-        var names = dishes.name;
+        return this.name;
             }
         
 		//TODO Lab 1
