@@ -48,7 +48,6 @@ var DinnerModel = function() {
             console.log(ingredientList)
         return ingredientList;
     }
-		//TODO Lab 1
 
 }
 
