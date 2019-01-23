@@ -27,34 +27,29 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
     this.getFullMenu = function() {
-        var names = dishes.name;
+        return this.name;
             }
         
 		//TODO Lab 1
-	}
+	
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-        var ingredientList = [];
+        var ingredientList = " ";
         var x;
         var y;
         for (x in dishes) {
             var dish = dishes[x];
-            for (y in dish) {
-                ingredientList.push(y);
+            for (y in dish.ingredients) {
+                var finDish = dishes.ingredients[y];
+                ingredientList += finDish;
                 }
             }
-        console.log(ingredientList);
+            console.log(ingredientList)
         return ingredientList;
-<<<<<<< HEAD
     }
-=======
-        
-        }
-		//TODO Lab 1
->>>>>>> 5dba4b9bd4fb515ac6d346749cb0c8d69364263c
 
-	
+}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
