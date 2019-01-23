@@ -35,17 +35,18 @@ var DinnerModel = function() {
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-        var ingredientList = " ";
+        var ingredientList = [];
         var x;
         var y;
         for (x in dishes) {
             var dish = dishes[x];
-            for (y in dish.ingredients) {
-                var finDish = dishes.ingredients[y];
-                ingredientList += finDish;
+            for (y in dish) {
+                ingredientList.push(y);
                 }
             }
-            return ingredientList
+        console.log(ingredientList);
+        return ingredientList;
+        
         }
 		//TODO Lab 1
 
