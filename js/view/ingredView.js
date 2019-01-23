@@ -1,6 +1,13 @@
 
 var ingredView = function (card, model) {
-	console.log(model)
     var allIngredients = card.find("#ingredientList");
-    allIngredients.html(model.getAllIngredients());
+    var x;
+    var str = "";
+    var arr = model.getAllIngredients();
+    for (x in arr) {
+            str += arr[x].name + "<br/>";
+        }
+    
+    allIngredients.html(str);
+    
 }

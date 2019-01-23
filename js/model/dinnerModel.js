@@ -35,17 +35,17 @@ var DinnerModel = function() {
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-        var ingredientList = " ";
+        var ingredientList = [];
         var x;
         var y;
         for (x in dishes) {
             var dish = dishes[x];
             for (y in dish.ingredients) {
-                var finDish = dishes.ingredients[y];
-                ingredientList += finDish;
+                var finDish = dish.ingredients[y];
+                ingredientList.push(finDish);
                 }
             }
-            console.log(ingredientList)
+            console.log(ingredientList);
         return ingredientList;
     }
 
