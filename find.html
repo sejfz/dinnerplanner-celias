@@ -15,13 +15,14 @@
         <h1><p class="text-center">Dinner Planner</p></h1>
       </div>
         <br>
-        <div id="dishItemView">
         <div class="container">
-        <h2>Find a dish</h2></div>
-        <br>
+        <h2>Find a dish</h2>
+            <br>
+      </div>
+      <div id="dishView">
             <div class="card" style="width: 12rem;">
             <img class="card-img-top" src="images/bakedbrie.jpg" alt="Baked brie">
-            <div class="text-center"><p>Name of dish here</p></div>
+                <div class="text-center">Name: <span id="names"></span></div>
             </div>
       </div>
       <div id="dishSearchView"></div>
@@ -30,13 +31,12 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
-    <script src=""></script>
+    <script src="js/view/dishView.js"></script>
   </body>
 </html>
