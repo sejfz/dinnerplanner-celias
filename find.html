@@ -15,18 +15,33 @@
         <h1><p class="text-center">Dinner Planner</p></h1>
       </div>
         <br>
-        <div class="container">
-        <h2>Find a dish</h2>
-            <br>
+            <div id="searchView">
+          <div class="float-top">
+              <div class="card">
+                  <div class="card-body" style="position: sticky">
+                      <p><b>Find a dish</b></p>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                <input type="text" class="form-control" aria-label="Small" placeholder="Enter key words" aria-describedby="inputGroup-sizing-sm">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</button>
+                                    <div class="dropdown-menu"></div>
+                                        <button type="button" class="btn btn-warning btn-sm">Search</button>
+
+
+                                </div>
+                            </div>
+                  </div>
+              </div>
+          </div>
       </div>
-      <div id="dishView">
+
+        <div id="dishView">
+            <br>
             <div class="card" style="width: 12rem;">
             <img class="card-img-top" src="images/bakedbrie.jpg" alt="Baked brie">
                 <div class="text-center">Name: <span id="name"></span></div>
             </div>
       </div>
-      <div id="dishSearchView"></div>
-      <div id="sidebarView"></div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -38,5 +53,6 @@
 	<script src="js/model/dinnerModel.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
     <script src="js/view/dishView.js"></script>
+    <script src="js/view/findView.js"></script>
   </body>
 </html>
