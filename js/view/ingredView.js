@@ -5,7 +5,7 @@ var ingredView = function (card, model) {
     var str = "";
     var arr = model.getAllIngredients();
     for (x in arr) {
-            str += arr[x].name + "<br/>";
+            str += arr[x].quantity + " " + arr[x].unit + " " + arr[x].name + " " + arr[x].price + " SEK" + "<br/>";
         }
     
     allIngredients.html(str);
