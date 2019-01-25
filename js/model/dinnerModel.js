@@ -27,7 +27,14 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
     this.getFullMenu = function() {
-        return this.name;
+        var x;
+        var alldish = [];
+        for (x in dishes){
+            var dish = dishes[x]
+            alldish.push(dish)
+        }
+        
+        return alldish;
             }
         
 		//TODO Lab 1
