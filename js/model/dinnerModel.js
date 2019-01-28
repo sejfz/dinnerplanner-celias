@@ -1,9 +1,9 @@
 //DinnerModel Object constructor
-var DinnerModel = function() {
+var DinnerModel = function () {
  
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
-
+    var dishList = [];
     
 	this.setNumberOfGuests = function(num) {
         var setGuest = num;
@@ -67,35 +67,33 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
         var newDish;
-        var dishesAdded = [];
         
         for (dish in dishes){
             if (dishes[dish].id === id) {
                 newDish = dishes[dish];
-                for (dish in dishesAdded){
-                    if (dishesAdded[dish].type === newDish.type){
-                        this.removeDishFromMenu(dishesAdded[dish].id, dishesAdded);
+                for (dish in dishList){
+                    if (dishList[dish].type === newDish.type){
+                        this.removeDishFromMenu(dishList[dish].id, dishList);
                     }
                 }
-                dishesAdded.push(newDish);
-                
+                console.log(dishList)
+                dishList.push(newDish);
             }
-        
-        
-        
         }
         
-        return dishesAdded;
+        return dishList;
     }
+    
+    
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id, arr) {
 
-        for(dish in dishesAdded){
-            if(dishes[dish].id in dishesAdded){
-                dishesAdded.splice(dishes[dish]);
+        for(dish in arr){
+            if(id === arr[dish].id){
+                arr.splice(dish);
             }
         }
-        return dishesAdded;
+        return arr;
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
