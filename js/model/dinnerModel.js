@@ -4,6 +4,7 @@ var DinnerModel = function() {
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
+    var dishesAdded = {};
     
 	this.setNumberOfGuests = function(num) {
         var setGuest = num;
@@ -21,7 +22,7 @@ var DinnerModel = function() {
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
         //if user selects a certain type, display the dishes with that 
-        return type;
+        return dishesAddedToMenu.type;
 		//TODO Lab 1
 	}
 
@@ -33,10 +34,8 @@ var DinnerModel = function() {
             var dish = dishes[x];
             alldish.push(dish);
         }
-        console.log(alldish);
-
         return alldish;
-            }
+    }
         
 		//TODO Lab 1
 	
@@ -53,11 +52,10 @@ var DinnerModel = function() {
                 ingredientList.push(finDish);
                 }
             }
-            console.log(ingredientList);
         return ingredientList;
     }
 
-}
+
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
@@ -68,37 +66,49 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-        return id;
-		//TODO Lab 1 
-	}
-
+        var newDish;
+        for (dish in dishes){
+            if (dish.id === id) {
+                newDish = dish;   
+            }
+        }
+        for (dish in dishesAdded){
+            if (dish.type === newDish.type){
+                removeDishFromMenu(dish.id);
+            }
+        }
+    }
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-        return id;
-		//TODO Lab 1
+        for(dish in dishesAdded){
+            console.log("hje");
+        }
+
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-        return dishes.filter(function(dish) {
-            var found = true;
-            if(filter){
-                found = false;
-                dish.ingredients.forEach(function(ingredient) {
-                    if(ingredient.name.indexOf(filter)!=-1) {
-                    found = true;
-                    }
+	this.getAllDishes = function(type,filter) {
+	  return this.dishes.filter(function(dish) {
+		let found = true;
+		if(filter){
+			found = false;
+			dish.ingredients.forEach(function(ingredient) {
+				if(ingredient.name.indexOf(filter)!=-1) {
+					found = true;
+				}
 			});
 			if(dish.name.indexOf(filter) != -1)
 			{
 				found = true;
 			}
 		}
-            return dish.type == type && found;
-        });	
+	  	return dish.type == type && found;
+	  });	
 	}
+                
+    
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
@@ -108,6 +118,8 @@ var DinnerModel = function() {
 			}
 		}
 	}
+    
+}
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and
