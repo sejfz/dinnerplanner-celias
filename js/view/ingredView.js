@@ -1,6 +1,7 @@
 
 var ingredView = function (card, model) {
     var allIngredients = card.find("#ingredientList");
+    model.addDishToMenu(1);
     var x;
     var str = "";
     var arr = model.getAllIngredients();

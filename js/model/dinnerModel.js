@@ -44,14 +44,13 @@ var DinnerModel = function () {
         var ingredientList = [];
         var x;
         var y;
-        for (x in dishes) {
-            var dish = dishes[x];
+        for (x in dishList) {
+            var dish = dishList[x];
             for (y in dish.ingredients) {
                 var finDish = dish.ingredients[y];
                 ingredientList.push(finDish);
                 }
             }
-        console.log(ingredientList);
         return ingredientList;
     }
 
@@ -59,7 +58,14 @@ var DinnerModel = function () {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-        return "50 SEK";
+        var ingList = this.getAllIngredients();
+        var totPrice = 0;
+        for(dish in ingList){
+            var prices = ingList[dish].price;
+            totPrice += prices;
+        }
+        totPrice = totPrice * this.getNumberOfGuests();
+        return totPrice + " SEK";
 		//TODO Lab 1
 	}
 
@@ -76,7 +82,6 @@ var DinnerModel = function () {
                         this.removeDishFromMenu(dishList[dish].id, dishList);
                     }
                 }
-                console.log(dishList)
                 dishList.push(newDish);
             }
         }
