@@ -30,10 +30,11 @@ var DinnerModel = function() {
         var x;
         var alldish = [];
         for (x in dishes){
-            var dish = dishes[x]
-            alldish.push(dish)
+            var dish = dishes[x];
+            alldish.push(dish);
         }
-        
+        console.log(alldish);
+
         return alldish;
             }
         

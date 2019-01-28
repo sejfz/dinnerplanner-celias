@@ -1,15 +1,14 @@
 
 var dishView = function (card, model) {
 	
-    var allName = card.find("#name");
+    var allName = card.find("#dish");
     var fullmenu = model.getFullMenu();
     var x;
-    var str = "";
+    var stri = "";
     for (x in fullmenu) {
-        str += fullmenu[x].name + "<br/>";
+        stri += fullmenu[x].name + "<br/>";
     }
-    console.log(str);
 
-    allName.html(str);
+    allName.html(stri);
 }
  
