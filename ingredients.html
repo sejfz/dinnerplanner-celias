@@ -19,7 +19,7 @@
       <div id="ingredView">
           <div class="float-right">
                     <div class="card">
-                        <div class="card-body" style="position: sticky">
+                        <div class="card-body">
                             <p><b>Ingredients for 2 people</b></p>
                             <span id="ingredientList"></span>
                                 <br><button type="button" class="btn btn-warning btn-sm">Add to menu</button>
@@ -27,15 +27,17 @@
                     </div>
               </div>
       </div>
-    
-      	<div class="container-fluid">
-        <h3>Dish Name Here</h3>
-            <p>Image here</p>
-                <br><button type="button" class="btn btn-warning btn-sm">Back to search</button>
-                    <h3>Preparation</h3>
-                        <p>Preparation text goes here</p>
-            
-      </div>
+        
+        <div id="displayView">
+      	     <div class="container-float" style="background-color: aquamarine">
+                <h3><span style="text-transform: uppercase" id="name"></span></h3>
+                <p><span id="pictures"></span></p>
+                    <button type="button" class="btn btn-warning btn-sm">Back to search</button>
+                        <h3>PREPARATION</h3>
+                            <p><span id="instructions"></span></p><br>
+           </div>
+        </div>
+
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -48,7 +50,7 @@
 	<!-- TODO: Here you should include JS code for your other views -->
     <script src="js/view/ingredView.js"></script>
     <script src="js/view/dishView.js"></script>
-
+    <script src="js/view/displayView.js"></script>
               
   </body>
 </html>
