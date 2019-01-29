@@ -6,7 +6,7 @@ var dishView = function (card, model) {
     var x;
     var stri = "";
     for (x in fullmenu) {
-        stri += fullmenu[x].name + "<br/>";
+        stri += "<img class=\"card-img-top\" src=\"images/" + fullmenu[x].image + "\" alt=\"" + fullmenu[x].image + "\">" + fullmenu[x].name + "<br/>";
     }
 
     allName.html(stri);

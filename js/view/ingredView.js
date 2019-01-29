@@ -9,7 +9,7 @@ var ingredView = function (card, model) {
     for (x in arr) {
         str += numguest * arr[x].quantity + " " + arr[x].unit + " " + arr[x].name + " " + numguest * arr[x].price + " SEK" + "<br/>";
         }
-    
+    str += "<strong> Total: " + model.getTotalMenuPrice() + "</strong>";
     allIngredients.html(str);
     
 }
