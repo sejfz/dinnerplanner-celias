@@ -1,3 +1,7 @@
 card {
     border: 10px;
 }
+
+#dish{
+    display:inline-block;
+}
