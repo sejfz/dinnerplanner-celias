@@ -7,7 +7,11 @@ var dishView = function (card, model) {
     for (x in dishes){
         var elem = document.createElement("div");
         
-        var divclass = document.createAttribute("class");        
+        var divclass = document.createAttribute("class");
+        divclass.value = "card";
+        
+        elem.setAttribute("class", divclass.value);
+        
         console.log(elem)
         
         var img = document.createElement("img");
@@ -18,8 +22,8 @@ var dishView = function (card, model) {
         classs.value = "card-img-top";
         src.value = "images/" + dishes[x].image;
         
-        img.setAttribute("class", classs.value);
         img.setAttribute("src", src.value);
+        img.setAttribute("class", classs.value);
         
         divList.push(elem);
         console.log(divList)
@@ -35,6 +39,7 @@ var dishView = function (card, model) {
         
         
     }*/
-    allName.html(divList);
+    //allName.appendChild(divList);
+    allName.get(0).appendChild(divList)
 }
  

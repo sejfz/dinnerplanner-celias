@@ -133,6 +133,9 @@ var DinnerModel = function () {
 			}
 		}
 	}
+    this.allDishesEver = function(){
+        return dishes;
+    }
     
 }
 	// the dishes variable contains an array of all the 
