@@ -13,30 +13,50 @@
   <body>
 	<div class="container-fluid" style="background-color: antiquewhite;">
         <h1><p class="text-center">Dinner Planner</p></h1>
+    </div>
+    <br>
+ 
+            <div id="sidebarView" class="col-sm-2" style="background-color: cornflowerblue">
+                <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#demo">Collapse/Expand</button>
+                    <div id="demo" class="collapse">
+                    <ul style="list-style: none">
+                        <li><h4>My dinner</h4></li>
+                        <li>People: <select name="number"><option value="1">1</option><option value="2">2</option></select></li>
+                        <br>
+                        <li>Dish Name Cost</li>
+                        <br><br>
+                        <li><p><span id="money"></span></p></li>
+                            <br><button type="button" class="btn btn-warning btn-sm">Confirm Dinner</button>
+                        </ul>
+            </div>
       </div>
-      <br>
-      
-      <div id="ingredView">
-          <div class="float-right">
-                    <div class="card">
-                        <div class="card-body">
-                            <p><b>Ingredients for 2 people</b></p>
-                            <span id="ingredientList"></span>
-                                <br><button type="button" class="btn btn-warning btn-sm">Add to menu</button>
-                        </div>
-                    </div>
-              </div>
-      </div>
-        
-        <div id="displayView">
-      	     <div class="container-float" style="background-color: aquamarine">
+
+          
+        <div id="displayView" class="col-sm-7" style="background-color: aquamarine">
                 <h3><span style="text-transform: uppercase" id="name"></span></h3>
                 <p><span id="pictures"></span></p>
                     <button type="button" class="btn btn-warning btn-sm">Back to search</button>
                         <h3>PREPARATION</h3>
                             <p><span id="instructions"></span></p><br>
-           </div>
         </div>
+
+
+            <div id="ingredView" class="col-sm-3" style="background-color: aqua">
+                    <p><b>Ingredients for <span id="numpeep"></span> people</b></p>
+                        <span id="ingredientList"></span>
+                        <br><br>
+                            <button type="button" class="btn btn-warning btn-sm">Add to menu</button>
+                        <br>
+            </div>
+                
+    <style>
+          
+          body {
+            display: flex;
+            flex-flow: row wrap;
+            }
+        
+      </style>
 
 
     <!-- jQuery -->
@@ -51,6 +71,7 @@
     <script src="js/view/ingredView.js"></script>
     <script src="js/view/dishView.js"></script>
     <script src="js/view/displayView.js"></script>
+    <script src="js/view/sidebarView.js"></script>
               
   </body>
 </html>
