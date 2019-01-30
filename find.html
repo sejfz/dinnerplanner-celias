@@ -29,8 +29,8 @@
                         </ul>
                     </div>
             </div>
-      
-        <div id="searchView" class="col-sm-10" style="background-color: aqua">
+      <div class="col-sm-10">
+        <div id="searchView" style="background-color: aqua">
         <p><b>Find a dish</b></p>
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
@@ -40,18 +40,28 @@
                                         <button type="button" class="btn btn-warning btn-sm">Search</button>
                                 </div>
                             </div>
-                        </div>
-            
-    <div id="dishView" class="container">
-        <div class="row justify-content-md-center" id="pic">
-            
-        </div>
-    </div>
+                
+         </div>
+         <div id="dishView" class="container">
+                    <div class="row" id="pic">
+
+                    </div>
+                </div>
+          </div>
+
     <style>
-      body {
+        body {
             display: flex;
             flex-flow: row wrap;
             }
+        .container {
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        #pic {
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
     </style>
 
     <!-- jQuery -->
