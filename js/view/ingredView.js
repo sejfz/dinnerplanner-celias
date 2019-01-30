@@ -2,6 +2,9 @@
 var ingredView = function (card, model) {
     var allIngredients = card.find("#ingredientList");
     model.addDishToMenu(1);
+    
+    var getPeople = card.find("#numpeep");
+    
     var x;
     var str = "";
     var str2 = "";
@@ -13,6 +16,8 @@ var ingredView = function (card, model) {
         }
     
     str += "<strong> Total: " + model.getTotalMenuPrice() + "</strong>";
-    allIngredients.html(str);
+    str2 = numguest;
     
+    allIngredients.html(str);
+    getPeople.html(str2);
 }
