@@ -1,5 +1,17 @@
-card {
-    border: 10px;
+h4 {
+    font-style: italic;
+}
+
+.card {
+    width: 18rem;
+    border-style: solid;
+    border-color: darkred;
+}
+
+.container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 #dish{

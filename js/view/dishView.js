@@ -1,46 +1,60 @@
 
 var dishView = function (card, model) {
 	
-    var allName = card.find("#dish");
+    var allName = card.find("#pic");
     var x;
     var divList = [];
     var suparr = model.allDishesEver();
     for (x in suparr){
+        
         var elem = document.createElement("div");
-        
-        var divclass = document.createAttribute("class");
-        divclass.value = "card";
-        
-        elem.setAttribute("class", divclass.value);
-        
-        console.log(elem)
-        
+        var div2 = document.createElement("div");
         var img = document.createElement("img");
-        elem.appendChild(img);
+        var p = document.createElement("h4");
         
+        
+        var divclass2 = document.createAttribute("class");
+        var divclass = document.createAttribute("class");
+        var divStyle = document.createAttribute("style");
         var classs = document.createAttribute("class");
         var src = document.createAttribute("src");
+        
+        var names = document.createTextNode(suparr[x].name);
+        
+        divclass2.value = "card-body";
+        divclass.value = "card";
+        divStyle.value =  "w3-card-4 w3-dark-grey"
+        p.value = "new thing";
         classs.value = "card-img-top";
         src.value = "images/" + suparr[x].image;
+
+        
+        elem.setAttribute("class", divclass.value);
+        elem.setAttribute("style", divStyle.value);
+        div2.setAttribute("class", divclass.value);
+        
+        
+        
+
         
         img.setAttribute("src", src.value);
         img.setAttribute("class", classs.value);
         
-        divList.push(elem);
-        console.log(divList)
-    }
 
-    /*var fullmenu = model.getFullMenu();
-    var stri = "";
-    var str = "";
-    for (x in fullmenu) {
-        stri += "<img class=\"card-img-top\" src=\"images/" + fullmenu[x].image + "\" alt=\"" + fullmenu[x].name + "\">" + fullmenu[x].name + </br>;
-        
-        str = ;
+        p.appendChild(names);
+        elem.appendChild(img);        
+        elem.appendChild(div2);
+        div2.appendChild(p);
         
         
-    }*/
-    //allName.appendChild(divList);
-    allName.html(divList)
+        
+        
+        divList.push(elem);
+        console.log(elem)
+        allName.html(elem);
+    }
+    
+    allName.html(divList);
+    
 }
  
