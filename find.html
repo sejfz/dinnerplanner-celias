@@ -15,26 +15,26 @@
         <h1><p class="text-center">Dinner Planner</p></h1>
       </div>
         <br>
-            <div id="searchView">
-              <div class="float-top">
-                  <div class="card">
-                      <div class="card-body" style="position: sticky">
-                          <p><b>Find a dish</b></p>
-                            <div class="input-group input-group-sm mb-3">
-                                <div class="input-group-prepend">
-                                <input type="text" class="form-control" aria-label="Small" placeholder="Enter key words" aria-describedby="inputGroup-sizing-sm">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All</button>
-                                    <div class="dropdown-menu"></div>
-                                        <button type="button" class="btn btn-warning btn-sm">Search</button>
-                                </div>
-                            </div>
-                        </div>
+            <div id="sidebarView" class="col-sm-2" style="background-color: cornflowerblue">
+                <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#demo">Collapse/Expand</button>
+                    <div id="demo" class="collapse">
+                    <ul style="list-style: none">
+                        <li><h4>My dinner</h4></li>
+                        <li>People: <select name="number"><option value="1">1</option><option value="2">2</option></select></li>
+                        <br>
+                        <li>Dish Name Cost</li>
+                        <br><br>
+                        <li><p><span id="money"></span></p></li>
+                            <br><button type="button" class="btn btn-warning btn-sm">Confirm Dinner</button>
+                        </ul>
                     </div>
-                </div>
             </div>
-
+      
+      
+            
     <div id="dishView" class="container">
-        <div class="row" id="pic">
+        <div class="row justify-content-md-center" id="pic">
+            
         </div>
     </div>
     <style>

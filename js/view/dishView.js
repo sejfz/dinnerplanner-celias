@@ -22,7 +22,7 @@ var dishView = function (card, model) {
         
         var names = document.createTextNode(suparr[x].name);
         
-        topclass.value = "col-sm-4";
+        topclass.value = "col-sm-2";
         divclass2.value = "card-body";
         divclass.value = "card";
         divStyle.value =  "width: 18rem;"
