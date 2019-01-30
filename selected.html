@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  </head>
+  <body>
+	<div class="container-fluid" style="background-color: antiquewhite;">
+        <h1><p class="text-center">Dinner Planner</p></h1>
+    </div>
+    <br>
+ 
+    <div class="input-group" style="background-color: aqua">
+    <div id="bannerView" class="col-sm-12" style="text-align: center">
+        <h1>My Dinner: <span id="numpeep"></span> people</h1>
+        <button type="button" class="btn btn-warning btn-sm">Go back and edit dinner</button></div>
+        <br></div>
+      
+      
+      <div id="selectedDishView" class="col-sm-8" style="background-color: aquamarine">
+          <div class="text-right">
+          <p><span id="cost"></span></p>
+      </div></div>
+      
+      <div id="totcostView" class="col-sm-4" style="background-color: deepskyblue">
+        <p>Total: <span id="total"></span></p>
+      </div>
+      
+      <div class="col-sm-12">
+      <div class="text-center"><button type="button" class="btn btn-warning btn-sm">Print Full Recipe</button></div>
+          </div>
+    <style>
+          
+          body {
+            display: flex;
+            flex-flow: row wrap;
+            }
+        
+      </style>
+      
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<!-- TODO: Here you should include JS code for your other views -->
+    <script src="js/view/ingredView.js"></script>
+    <script src="js/view/dishView.js"></script>
+    <script src="js/view/displayView.js"></script>
+    <script src="js/view/sidebarView.js"></script>
+    <script src="js/view/bannerView.js"></script>
+    <script src="js/view/selectedDishView.js"></script>
+    <script src="js/view/totcostView.js"></script>
+              
+  </body>
+</html>
