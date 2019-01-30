@@ -7,12 +7,13 @@ var dishView = function (card, model) {
     var suparr = model.allDishesEver();
     for (x in suparr){
         
+        var topdiv = document.createElement("div");
         var elem = document.createElement("div");
         var div2 = document.createElement("div");
         var img = document.createElement("img");
         var p = document.createElement("h4");
         
-        
+        var topclass = document.createAttribute("class");
         var divclass2 = document.createAttribute("class");
         var divclass = document.createAttribute("class");
         var divStyle = document.createAttribute("style");
@@ -21,26 +22,24 @@ var dishView = function (card, model) {
         
         var names = document.createTextNode(suparr[x].name);
         
+        topclass.value = "col-sm-4";
         divclass2.value = "card-body";
         divclass.value = "card";
-        divStyle.value =  "w3-card-4 w3-dark-grey"
+        divStyle.value =  "width: 18rem;"
         p.value = "new thing";
         classs.value = "card-img-top";
         src.value = "images/" + suparr[x].image;
 
-        
-        elem.setAttribute("class", divclass.value);
-        elem.setAttribute("style", divStyle.value);
+        topdiv.setAttribute("class", topclass.value);
+        //elem.setAttribute("class", divclass.value);
+        //elem.setAttribute("style", divStyle.value);
         div2.setAttribute("class", divclass.value);
-        
-        
-        
-
         
         img.setAttribute("src", src.value);
         img.setAttribute("class", classs.value);
         
-
+        
+        topdiv.appendChild(elem);        
         p.appendChild(names);
         elem.appendChild(img);        
         elem.appendChild(div2);
@@ -49,9 +48,9 @@ var dishView = function (card, model) {
         
         
         
-        divList.push(elem);
-        console.log(elem)
-        allName.html(elem);
+        divList.push(topdiv);
+        console.log(topdiv)
+        allName.html(topdiv);
     }
     
     allName.html(divList);

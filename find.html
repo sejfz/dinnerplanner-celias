@@ -8,7 +8,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
 
   </head>
   <body>
@@ -34,10 +33,16 @@
                 </div>
             </div>
 
-    <div id="dishView">
-        <span id="pic" class="container"></span>
+    <div id="dishView" class="container">
+        <div class="row" id="pic">
+        </div>
     </div>
-      
+    <style>
+      body {
+            display: flex;
+            flex-flow: row wrap;
+            }
+    </style>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
