@@ -21,5 +21,4 @@ $(function() {
     
     var container7 = $("#totcostView")
     var TotCostView = new totcostView(container7, model);
-    
 });

@@ -22,10 +22,7 @@ var DinnerModel = function () {
 	this.getSelectedDish = function(type) {
         //if user selects a certain type, display the dishes with that 
         return dishesAddedToMenu.type;
-		
-        
-        //OBS FIXA DET HÄR ELLER DÖ MANNEN
-        
+		//TODO Lab 1
 	}
 
 	//Returns all the dishes on the menu.

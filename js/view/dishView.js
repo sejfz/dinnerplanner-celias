@@ -13,7 +13,6 @@ var dishView = function (card, model) {
         var img = document.createElement("img");
         var p = document.createElement("h4");
         
-        var cardid = document.createAttribute("id");
         var topclass = document.createAttribute("class");
         var divclass2 = document.createAttribute("class");
         var divclass = document.createAttribute("class");
@@ -23,19 +22,17 @@ var dishView = function (card, model) {
         
         var names = document.createTextNode(suparr[x].name);
         
-        cardid.value = "dishid";
+        topclass.value = "col-sm-2";
         divclass2.value = "card-body";
         divclass.value = "card";
-        divStyle.value =  "width: 13rem;"
+        divStyle.value =  "width: 18rem;"
         p.value = "new thing";
         classs.value = "card-img-top";
         src.value = "images/" + suparr[x].image;
-        
 
         topdiv.setAttribute("class", topclass.value);
-        topdiv.setAttribute("id", cardid.value);
         //elem.setAttribute("class", divclass.value);
-        topdiv.setAttribute("style", divStyle.value);
+        //elem.setAttribute("style", divStyle.value);
         div2.setAttribute("class", divclass.value);
         
         img.setAttribute("src", src.value);
