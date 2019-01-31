@@ -16,25 +16,31 @@
     </div>
     <br>
  
-    <div class="input-group">
-    <div id="bannerView" class="col-sm-12" style="text-align: center">
-        <h1>My Dinner: <span id="numpeep"></span> people</h1>
-        <button type="button" class="btn btn-warning btn-sm">Go back and edit dinner</button></div>
-        <br></div>
+    <div class="container">
+        <div class="row justify-content-sm-center">
+            <div class="input-group">
+                <div id="bannerView" class="col-sm-12" style="text-align: center">
+                    <h1>My Dinner: <span id="numpeep"></span> people</h1>
+                    <button type="button" class="btn btn-warning btn-sm">Go back and edit dinner</button></div>
+                    <br></div>
+
+
+                  <div id="selectedDishView" class="col-sm-8">
+                      <div class="text-right">
+                      <p><span id="cost"></span></p>
+                  </div></div>
+
+
+                  <div id="totcostView" class="col-sm-4">
+                    <p>Total: <span id="total"></span></p>
+                  </div>
+                    <div class="col-sm-12">
+                      <div class="text-center"><button type="button" class="btn btn-warning btn-sm">Print Full Recipe</button>
+                      </div>
+                    </div>
+        </div>
+    </div>
       
-      
-      <div id="selectedDishView" class="col-sm-8">
-          <div class="text-right">
-          <p><span id="cost"></span></p>
-      </div></div>
-      
-      
-      <div id="totcostView" class="col-sm-4">
-        <p>Total: <span id="total"></span></p>
-      </div>
-      <div class="col-sm-12">
-      <div class="text-center"><button type="button" class="btn btn-warning btn-sm">Print Full Recipe</button></div>
-          </div>
     <style>
           
         body {
@@ -48,9 +54,17 @@
             border-color: darkgray;
         }
         
-        #selectedDishView, #totcostView {
+        #selectedDishView {
             padding-top: 20px;
             border-bottom-style: solid;
+            border-width: 1px;
+            border-color: darkgray;
+        }
+        
+        #totcostView {
+            padding-top: 20px;
+            border-bottom-style: solid;
+            border-left: solid;
             border-width: 1px;
             border-color: darkgray;
         }
