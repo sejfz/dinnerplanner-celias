@@ -19,7 +19,7 @@
     <div class="input-group">
     <div id="bannerView" class="col-sm-12" style="text-align: center">
         <h1>My Dinner: <span id="numpeep"></span> people</h1>
-        <button type="button" class="btn btn-warning btn-sm">Go back and edit dinner</button></div><br></div>
+        <button type="button" class="btn btn-warning btn-sm">Go back and edit dinner</button></div></div>
     
 
             
@@ -45,11 +45,21 @@
       
     <style>
           
-          body {
+        body {
             display: flex;
             flex-flow: row wrap;
             }
         
+        #bannerView {
+            padding-bottom: 20px;
+            border-style: hidden hidden solid hidden;
+            border-width: 1px;
+        }
+        
+        #mydinnerView1, #displayView {
+            padding-top: 20px;
+        }
+      
       </style>
       
     <!-- jQuery -->
