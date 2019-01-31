@@ -8,23 +8,17 @@ var DinnerModel = function () {
 	this.setNumberOfGuests = function(num) {
         var setGuest = num;
             return setGuest;
-		//TODO Lab 1
         //we assume set will be used to update getGuest by user clicking in more guests
 	}
 	
 	this.getNumberOfGuests = function() {
         var getnumberOfGuests = 2;
             return getnumberOfGuests;
-		//TODO Lab 1
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-        //if user selects a certain type, display the dishes with that 
-        return dishesAddedToMenu.type;
-		
-        
-        //OBS FIXA DET HÄR ELLER DÖ MANNEN
+        return dishList;
         
 	}
 
@@ -38,9 +32,6 @@ var DinnerModel = function () {
         }
         return alldish;
     }
-        
-		//TODO Lab 1
-	
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
@@ -56,8 +47,6 @@ var DinnerModel = function () {
             }
         return ingredientList;
     }
-
-
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
