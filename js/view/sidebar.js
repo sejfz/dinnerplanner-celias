@@ -1,57 +1,58 @@
-var dishView = function (card, model) {
+var sidebar = function (card, model) {
 	
-    var allName = card.find("#sidebar");
-    var x;
-    var divList = [];
+    var sidB = card.find("#sidb");
     var topdiv = document.createElement("div");
-    var elem = document.createElement("div");
+    var button = document.createElement("button");
     var div2 = document.createElement("div");
-    var img = document.createElement("img");
-    var p = document.createElement("h4");
+    var myDinner = document.createElement("h4");
+    var dishName = document.createElement("p");
+    var cost = document.createElement("p");
 
-    var cardid = document.createAttribute("id");
     var topclass = document.createAttribute("class");
-    var divclass2 = document.createAttribute("class");
-    var divclass = document.createAttribute("class");
-    var divStyle = document.createAttribute("style");
-    var classs = document.createAttribute("class");
-    var src = document.createAttribute("src");
+    var butType = document.createAttribute("type");
+    var div2class = document.createAttribute("class");
+    var butClass = document.createAttribute("class");
+    var butDataToggle = document.createAttribute("data-toggle");
+    var butDataTarget = document.createAttribute("data-target");
+    var div2Id = document.createAttribute("id");
 
-    var names = document.createTextNode(suparr[x].name);
+    var MD = document.createTextNode("My Dinner");
+    var DN = document.createTextNode("Dish Name: ");
+    var totcost = document.createTextNode("66 kr");
+    var butInfo = document.createTextNode("expand/collapse");
 
-    cardid.value = "dishid";
-    divclass2.value = "card-body";
-    divclass.value = "card";
-    divStyle.value =  "width: 13rem;"
-    p.value = "new thing";
-    classs.value = "card-img-top";
-    src.value = "images/" + suparr[x].image;
-
+    topclass.value = "d-block d-sm-none";
+    div2class.value = "collapse";
+    butType.value = "button";
+    butClass.value =  "btn btn-warning";
+    butDataToggle.value = "collapse";
+    butDataTarget.value = "#content";
+    div2Id.value = "content";
 
     topdiv.setAttribute("class", topclass.value);
-    topdiv.setAttribute("id", cardid.value);
-    //elem.setAttribute("class", divclass.value);
-    topdiv.setAttribute("style", divStyle.value);
-    div2.setAttribute("class", divclass.value);
+    button.setAttribute("type", butType.value);
+    button.setAttribute("class", butClass.value);
+    button.setAttribute("data-toggle", butDataToggle.value);
+    button.setAttribute("data-target", butDataTarget.value);
+    div2.setAttribute("id", div2Id.value);
+    div2.setAttribute("class", div2class.value);
+    
+    topdiv.appendChild(button);
+    topdiv.appendChild(div2);
+    button.appendChild(butInfo);
+    myDinner.appendChild(MD);
+    dishName.appendChild(DN);
+    cost.appendChild(totcost);
+    div2.appendChild(myDinner);        
+    div2.appendChild(dishName);
+    div2.appendChild(cost);
 
-    img.setAttribute("src", src.value);
-    img.setAttribute("class", classs.value);
-
-
-    topdiv.appendChild(elem);        
-    p.appendChild(names);
-    elem.appendChild(img);        
-    elem.appendChild(div2);
-    div2.appendChild(p);
 
 
 
-
-    divList.push(topdiv);
     console.log(topdiv)
-    allName.html(topdiv);
+    sidB.html(topdiv);
 
 
-    allName.html(divList);
     
 }

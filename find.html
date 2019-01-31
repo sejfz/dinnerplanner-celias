@@ -22,20 +22,24 @@
 
           </div>
       </div>-->
-            <div id="sidebarView" class="col-sm-2">
+         <!-- <div class="d-block d-sm-none">
                 <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#demo">Collapse/Expand</button>
-                    <div id="demo" class="collapse">
-                    <ul style="list-style: none">
-                        <li><h4>My dinner</h4></li>
-                        <li>People: <select name="number"><option value="1">1</option><option value="2">2</option></select></li>
-                        <br>
-                        <li>Dish Name Cost</li>
-                        <br><br>
-                        <li><p><span id="money"></span></p></li>
-                            <br><button type="button" class="btn btn-warning btn-sm">Confirm Dinner</button>
-                        </ul>
+                <div id="demo" class="collapse">
+                </div>
                     </div>
-            </div> 
+                    
+                        <h4>My dinner</h4>
+                        <p>People: <select name="number"><option value="1">1</option><option value="2">2</option></select></p>
+                        <br>
+                        <p>Dish Name Cost</p>
+                        <br><br>
+                        <p><span id="money"></span></p>
+                            <br><button type="button" class="btn btn-warning btn-sm">Confirm Dinner</button>-->
+        <div id="sidebar" class="container">
+            <div class="col-sm-2" id="sidb">
+                    
+            </div>
+        </div>
       <div class="col-sm-10">
         <div id="searchView">
         <p><b>Find a dish</b></p>
@@ -99,10 +103,15 @@
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
+        <script src="js/view/ingredView.js"></script>
     <script src="js/view/dishView.js"></script>
-    <script src="js/view/ingredView.js"></script>
     <script src="js/view/displayView.js"></script>
-    <script src="style.css"></script>
+    <script src="js/view/sidebarView.js"></script>
+    <script src="js/view/bannerView.js"></script>
+    <script src="js/view/selectedDishView.js"></script>
+    <script src="js/view/totcostView.js"></script>
+    <script src="js/view/sidebar.js"></script>
+
 
 
 
