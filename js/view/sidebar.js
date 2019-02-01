@@ -1,7 +1,7 @@
 var sidebar = function (card, model) {
 	
     var sidB = card.find("#sidb");
-    var topdiv = document.createElement("div");
+    var topdiv = document.createElement("nav");
     var button = document.createElement("button");
     var div2 = document.createElement("div");
     var myDinner = document.createElement("h4");
@@ -18,13 +18,14 @@ var sidebar = function (card, model) {
     var div2Id2 = document.createAttribute("id");
     var onresize = document.createAttribute("onresize");
     var aria = document.createAttribute("aria-expanded");
+    var ariac = document.createAttribute("aria-controls");
 
     var MD = document.createTextNode("My Dinner");
     var DN = document.createTextNode("Dish Name: ");
     var totcost = document.createTextNode("66 kr");
     var butInfo = document.createTextNode("expand/collapse");
 
-    
+    topclass.value = "navbar navbar-expand-sm navbar-light bg-light";
     aria.value = "true";
     div2class.value = "collapse";
     butType.value = "button";
@@ -32,8 +33,9 @@ var sidebar = function (card, model) {
     butDataToggle.value = "collapse";
     butDataTarget.value = "#content";
     div2Id.value = "content";
-    div2Id2.value = "annat";
-    
+    ariac.value = ""
+
+    topdiv.setAttribute("class", topclass.value);
     div2.setAttribute("aria-expanded", aria.value);
     button.setAttribute("type", butType.value);
     button.setAttribute("class", butClass.value);
