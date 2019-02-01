@@ -18,7 +18,17 @@ var DinnerModel = function () {
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-        return dishList;
+        var type = "starter";
+        var listNames = "";
+        var x;
+        for (x in dishes) {
+            if (type === dishes.type) {
+            listNames += dishes.name;
+        }
+            console.log(listNames);
+        }
+        console.log(listNames);
+        return listName;
         
 	}
 
