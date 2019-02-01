@@ -1,30 +1,19 @@
 
 var displayView = function (container, model) {
     var getName = container.find("#name");
-    //var getInstr = container.find("#instructions");
+    var getInstr = container.find("#instructions");
+    var getPic = container.find("#pictures")
     
-    var Menu = model.getFullMenu();
-    var x;
-    var y;
-    var names = [];
-    
-    for (x in Menu) {
-        var dish = Menu[x];
-        names += dish.name + " ";
-        console.log(names);
-        }
+    var str = "";
+    var str2 = "";
+    var str3 ="";
 
-    getName.html(names);
+    str = dishes[0].name;
+    str2 = dishes[0].description;
+    str3 = "<img src=\"images/" + dishes[0].image + "\">";
+    
+    getName.html(str);
+    getInstr.html(str2);
+    getPic.html(str3);
 
 }
-
-    //var str = "";
-    //var str2 = "";
-    //var str3 ="";
-
-    //str = dishes[0].name;
-    //str2 = dishes[0].description;
-    
-    //getName.html(str);
-    //getInstr.html(str2);
-

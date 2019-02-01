@@ -10,8 +10,6 @@ $(function() {
     var container3 = $("#displayView")
     var DisplayView = new displayView(container3, model);
     
-
-    
     var container5 = $("#bannerView")
     var BannerView = new bannerView(container5, model);
     
@@ -23,5 +21,8 @@ $(function() {
     
     var container8 = $("#sidebar")
     var TotCostView = new sidebar(container8, model);
+    
+    var container9 = $("#anotherView")
+    var AnotherView = new anotherView(container9, model);
     
 });

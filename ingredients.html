@@ -16,22 +16,28 @@
     </div>
     <br>
  
-            <div id="sidebarView" class="col-sm-2">
-                <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#demo">Collapse/Expand</button>
-                    <div id="demo" class="collapse">
-                    <ul style="list-style: none">
-                        <li><h4>My dinner</h4></li>
-                        <li>People: <select name="number"><option value="1">1</option><option value="2">2</option></select></li>
-                        <br>
-                        <li>Dish Name Cost</li>
-                        <br><br>
-                        <li><p><span id="money"></span></p></li>
-                            <br><button type="button" class="btn btn-warning btn-sm">Confirm Dinner</button>
-                        </ul>
+
+      <div id=siderbarView class="col-sm-3">
+          <nav class="navbar navbar-expand-sm navbar-light bg-light">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul style="list-style: none" class = "nav navbar-nav collapse navbar-collapse">
+            <li><h4>My dinner</h4><br><br></li>
+            <li>People: <select name="number"><option value="1">1</option><option value="2">2</option></select></li>
+            <li>Dish Name Cost<br><br></li>
+            <br><br>
+            <li><p><span id="money"></span></p></li><br>
+            <button type="button" class="btn btn-warning btn-sm">Confirm Dinner</button>
+        </ul>
             </div>
-      </div>
-          
-        <div id="displayView" class="col-sm-7">
+        </nav>
+  </div>
+      
+        <div id="displayView" class="col-sm-6">
                 <h3><span style="text-transform: uppercase" id="name"></span></h3>
                 <p><span id="pictures"></span></p>
                     <button type="button" class="btn btn-warning btn-sm">Back to search</button>
