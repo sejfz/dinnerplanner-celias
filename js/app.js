@@ -19,10 +19,10 @@ $(function() {
     var container7 = $("#totcostView")
     var TotCostView = new totcostView(container7, model);
     
-    var container8 = $("#sidebar")
-    var TotCostView = new sidebar(container8, model);
+    //var container8 = $("#sidebar")
+    //var TotCostView = new sidebar(container8, model);
     
     var container9 = $("#anotherView")
-    var AnotherView = new anotherView(container9, model);
+    var otherView = new anotherView(container9, model);
     
 });

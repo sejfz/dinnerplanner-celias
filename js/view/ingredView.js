@@ -9,7 +9,8 @@ var ingredView = function (card, model) {
     var str = "";
     var str2 = "";
 
-    var arr = model.getAllIngredients();
+    var allSelected = model.getAllSelected();
+    var arr = model.getAllIngredients(allSelected);
     var numguest = model.getNumberOfGuests();
     for (x in arr) {
         str += numguest * arr[x].quantity + " " + arr[x].unit + " " + arr[x].name + " " + numguest * arr[x].price + " SEK" + "<br/>";

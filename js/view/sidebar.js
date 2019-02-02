@@ -29,12 +29,13 @@ var sidebar = function (card, model) {
     aria.value = "true";
     div2class.value = "collapse";
     butType.value = "button";
-    butClass.value = "btn btn-warning d-block d-sm-none";
+    butClass.value = "navbar-toggler";
     butDataToggle.value = "collapse";
-    butDataTarget.value = "#content";
+    butDataTarget.value = "#navbarSupportedContent";
     div2Id.value = "content";
-    ariac.value = ""
+    ariac.value = "navbarSupportedContent";
 
+    button.setAttribute("aria-controls");
     topdiv.setAttribute("class", topclass.value);
     div2.setAttribute("aria-expanded", aria.value);
     button.setAttribute("type", butType.value);
