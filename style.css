@@ -1,11 +1,4 @@
-h4 {
-    font-style: italic;
-}
 
-.card {
-    border-style: solid;
-    border-color: darkred;
-}
 
 .container {
     flex-direction: row;
@@ -14,4 +7,34 @@ h4 {
 
 #dish{
     display:inline-block;
+}
+
+#noborders {
+    border-style: none;
+    padding: 20px;
+}
+
+#nicePic {
+    border-style: outset;
+}
+
+#numId {
+    width: 50px;
+}
+
+.col-sm-12 {
+    padding: 10px;
+}
+
+#summaryBar {
+    border-style: ridge;
+    border-color: black;
+    flex: auto;
+    border-radius: 10px;
+    background-color: beige;
+}
+
+#sidb {
+
+    flex-direction: column;
 }

@@ -5,7 +5,9 @@ var sidebar = function (card, model) {
     var topclass = document.createAttribute("class");
     topclass.value = "navbar navbar-expand-sm navbar-light bg-light";
     topdiv.setAttribute("class", topclass.value);
-
+    var br = document.createElement("br");
+    
+    
     var button = document.createElement("button");
     var butType = document.createAttribute("type");
     var butClass = document.createAttribute("class");
@@ -51,20 +53,69 @@ var sidebar = function (card, model) {
     innerdiv.setAttribute("class", innerDivClass.value);
     div2.appendChild(innerdiv);
     
+    var fullCol = document.createAttribute("class");
+    fullCol.value = "col-sm-12";
+
+    
+    
     var myDinner = document.createElement("h4");
     var MD = document.createTextNode("My Dinner");
+    myDinner.setAttribute("class", fullCol.value);
     myDinner.appendChild(MD);
-    innerdiv.appendChild(myDinner);        
+    innerdiv.appendChild(myDinner); 
+    
+    var inputDiv = document.createElement("div");
+    var inputId = document.createAttribute("id");
+    inputDiv.setAttribute("class", fullCol.value);
+    inputId.value = "inputId";
+    inputDiv.setAttribute("id", inputId.value);
+    innerdiv.appendChild(inputDiv);    
+    var peps = document.createTextNode("People: ");
+    var inputBox = document.createElement("input");
+    inputDiv.appendChild(peps);
+    var num = document.createAttribute("type");
+    num.value = "number";
+    var inputBoxId = document.createAttribute("id");
+    inputBoxId.value = "numId";
+    var minimum = document.createAttribute("min");
+    minimum.value = "1";
+    var inputSize = document.createElement("maxlength");
+    inputSize.value = "2";
+    
+    inputBox.setAttribute("maxlength", inputSize.value);
+    inputBox.setAttribute("type", num.value);
+    inputBox.setAttribute("id", inputBoxId.value);
+    inputBox.setAttribute("min", minimum.value);
+    inputDiv.append(inputBox);
 
+    var summaryBar = document.createElement("div");
+    var summaryId = document.createAttribute("id");
+    var summaryClass = document.createAttribute("class");
+    summaryClass.value = "row";
+    summaryId.value = "summaryBar";
+    summaryBar.setAttribute("id", summaryId.value);
+    summaryBar.setAttribute("class", summaryClass.value);
+    innerdiv.appendChild(summaryBar);
+    
     var dishName = document.createElement("p");
-    var DN = document.createTextNode("Dish Name: ");
+    var DNClass = document.createAttribute("class");
+    DNClass.value = "col-sm-6";
+    dishName.setAttribute("class", DNClass.value);
+    var DN = document.createTextNode("Dish Name");
     dishName.appendChild(DN);
-    innerdiv.appendChild(dishName);
+    summaryBar.appendChild(dishName);
+    innerdiv.appendChild(br);
+    innerdiv.appendChild(br);
 
     var cost = document.createElement("p");
-    var totcost = document.createTextNode("66 kr");
+    var costClass = document.createAttribute("class");
+    costClass.value = "col-sm-6";
+    cost.setAttribute("class", costClass.value);
+    var totcost = document.createTextNode("Total Cost");
     cost.appendChild(totcost);
-    innerdiv.appendChild(cost);
+    summaryBar.appendChild(cost);
+    
+    
 
     
   

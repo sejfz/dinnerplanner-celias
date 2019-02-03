@@ -13,8 +13,11 @@ var anotherView = function (container, model) {
         
         var card = document.createElement("div");
         var cardclass = document.createAttribute("class");
+        var cardId = document.createAttribute("id");
+        cardId.value = "noborders";
         cardclass.value = "card";
         card.setAttribute("class", cardclass.value);
+        card.setAttribute("id", cardId.value);
         
         var row = document.createElement("div");
         var rowclass = document.createAttribute("class");
@@ -29,9 +32,12 @@ var anotherView = function (container, model) {
         row.appendChild(imgdiv);
         
         var img = document.createElement("img");
+        var imgId = document.createAttribute("id");
         var src = document.createAttribute("src");
         src.value = "images/" + Menu[x].image;
+        imgId.value = "nicePic";
         img.setAttribute("src", src.value);
+        img.setAttribute("id", imgId.value);
         imgdiv.appendChild(img);
         
         var infodiv = document.createElement("div");
