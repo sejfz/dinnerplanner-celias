@@ -13,13 +13,15 @@ var topView = function (card, model) {
     var DP = document.createTextNode("Dinner Planner");
     
     topclass.value = "container-fluid";
-    stylish.value = "background-colour: antiquewhite";
+    stylish.value = "background-color: antiquewhite";
     class2.value = "text-center";
 
     topdiv.setAttribute("class", topclass.value);
-    text.setAttribute("style", stylish.value);
+    topdiv.setAttribute("style", stylish.value);
     place.setAttribute("class", class2.value);
 
+    text.appendChild(DP);
+    text.appendChild(DP);
     topdiv.appendChild(text);
     topdiv.appendChild(place);
     console.log(topdiv)
