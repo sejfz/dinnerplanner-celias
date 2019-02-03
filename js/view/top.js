@@ -19,10 +19,10 @@ var top = function (card, model) {
         text.setAttribute("style", stylish.value);
         place.setAttribute("class", class2.value);
                 
-        divList.push(topdiv);
-        console.log(topdiv)
+        topdiv.appendChild(text);
+        topdiv.appendChild(place);
+        console.log(topdiv);
     }
     
-    niceHeader.html(HALP);
+    niceHeader.html(topdiv);
  
-
