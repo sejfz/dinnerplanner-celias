@@ -56,3 +56,8 @@
     border-top-style: dotted;
     font-weight: 560;
 }
+
+#selected {
+    flex-flow: row;
+    justify-content: space-evenly;
+}
