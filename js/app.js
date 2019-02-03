@@ -10,16 +10,6 @@ $(function() {
     var container3 = $("#displayView")
     var DisplayView = new displayView(container3, model);
     
-    
-
-
-    
-    var container6 = $("#totcostView")
-    var totcosView = new totcostView(container6, model);
-    
-    var container7 = $("#totcostView")
-    var TotCostView = new totcostView(container7, model);
-    
     var container8 = $("#sidebar")
     var sideb = new sidebar(container8, model);
     
@@ -31,4 +21,7 @@ $(function() {
 
     var container4 = $("#topVie")
     var topp = new topView(container4, model);
+    
+    var container7 = $("#totcostView")
+    var TotCostView = new totcostView(container7, model);
 });
