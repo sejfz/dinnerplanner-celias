@@ -10,6 +10,8 @@ var topView = function (card, model) {
     var stylish = document.createAttribute("style");
     var class2 = document.createAttribute("class");
 
+    var DP = document.createTextNode("Dinner Planner");
+    
     topclass.value = "container-fluid";
     stylish.value = "background-colour: antiquewhite";
     class2.value = "text-center";
@@ -20,23 +22,7 @@ var topView = function (card, model) {
 
     topdiv.appendChild(text);
     topdiv.appendChild(place);
-    console.log(topdiv);
+    console.log(topdiv)
     niceHeader.html(topdiv);
 
-    
-    
- 
-        topclass.value = "container-fluid";
-        stylish.value = "background-colour: antiquewhite";
-        class2.value = "text-center";
-    
-        topdiv.setAttribute("class", topclass.value);
-        topdiv.setAttribute("style", stylish.value);
-        place.setAttribute("class", class2.value);
-                
-        topdiv.appendChild(text);
-        topdiv.appendChild(place);
-        console.log(topdiv);
-    
-    niceHeader.html(topdiv);
-}
+    }
