@@ -131,8 +131,8 @@ var sidebar = function (card, model) {
     cost.appendChild(totcost);
     summaryBar.appendChild(cost);
     
-    model.addDishToMenu(1);
-    model.addDishToMenu(2);
+    var bar = model.addDishToMenu(1);
+    var bar = model.addDishToMenu(101);
     var allSelected = model.getAllSelected();
     var x;
     console.log(allSelected)
@@ -173,14 +173,27 @@ var sidebar = function (card, model) {
         var priceColClass = document.createAttribute("class");
         priceColClass.value = "col-6";
         priceCol.setAttribute("class", priceColClass.value);
+        priceCol.setAttribute("align", costAlign.value);
         xprice.appendChild(priceCalc);
         priceCol.appendChild(xprice);
         tempRow.appendChild(priceCol);
         
         priceDiv.appendChild(tempRow);
     }
-
-
+    var finalPrice = model.getTotalMenuPrice(allSelected);
+    var finalCost = document.createElement("div");
+    var finalId = document.createAttribute("id");
+    var finalClass = document.createAttribute("class");
+    var finalCostP = document.createElement("p");
+    var finalCalc = document.createTextNode(finalPrice);
+    finalCostP.appendChild(finalCalc);
+    finalClass.value = "col-sm-12";
+    finalId.value = "finalId";
+    finalCost.setAttribute("align", costAlign.value);
+    finalCost.setAttribute("class", finalClass.value);
+    finalCost.setAttribute("id", finalId.value);
+    finalCost.appendChild(finalCostP);
+    innerdiv.appendChild(finalCost);
 
 
 
