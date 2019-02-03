@@ -16,7 +16,7 @@ var ingredView = function (card, model) {
         str += numguest * arr[x].quantity + " " + arr[x].unit + " " + arr[x].name + " " + numguest * arr[x].price + " SEK" + "<br/>";
         }
     
-    str += "<strong> Total: " + model.getTotalMenuPrice() + "</strong>";
+    str += "<strong> Total: " + model.getTotalMenuPrice(allSelected) + "</strong>";
     str2 = numguest;
     
     allIngredients.html(str);

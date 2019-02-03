@@ -50,19 +50,25 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
-    <script src="js/view/homeView.js"></script>
-    <script src="js/view/ingredView.js"></script>
+        <script src="js/view/ingredView.js"></script>
     <script src="js/view/dishView.js"></script>
+    <script src="js/view/displayView.js"></script>
+    <script src="js/view/sidebarView.js"></script>
+    <script src="js/view/bannerView.js"></script>
+    <script src="js/view/selectedDishView.js"></script>
+    <script src="js/view/totcostView.js"></script>
+    <script src="js/view/sidebar.js"></script>
+    <script src="js/view/anotherView.js"></script>
+    <script src="style.css"></script>
 
       <script>var model = new DinnerModel()
           var gud = model.addDishToMenu(1)
             var gud = model.addDishToMenu(100)
             var gud = model.addDishToMenu(101)
+            var selected = model.getAllSelected();
 
-
-          console.log(gud)
+          console.log(selected)
       </script>
   </body>
 </html>

@@ -26,15 +26,28 @@
     padding: 10px;
 }
 
-#summaryBar {
+#summaryDiv {
     border-style: ridge;
-    border-color: black;
-    flex: auto;
-    border-radius: 10px;
+    border-color: darkgrey;
+    border-radius: 5px;
     background-color: beige;
+    flex-direction: row;
+    padding: 0px;
+    font-weight: 560;
+    padding-left: 25px;
+    padding-right: 25px;
 }
+
 
 #sidb {
 
-    flex-direction: column;
+}
+
+#navId {
+    border-radius: 5px;
+    border-style: double;
+    align-items: flex-start;
+    height: 100%;
+    width: auto;
+    padding: 0px;
 }

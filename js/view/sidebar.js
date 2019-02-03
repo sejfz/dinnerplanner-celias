@@ -3,7 +3,10 @@ var sidebar = function (card, model) {
     var sidB = card.find("#sidb");
     var topdiv = document.createElement("nav");
     var topclass = document.createAttribute("class");
-    topclass.value = "navbar navbar-expand-sm navbar-light bg-light";
+    var topId = document.createAttribute("id");
+    topId.value = "navId";
+    topclass.value = "navbar navbar-expand-sm navbar-light";
+    topdiv.setAttribute("id", topId.value);
     topdiv.setAttribute("class", topclass.value);
     var br = document.createElement("br");
     
@@ -38,6 +41,7 @@ var sidebar = function (card, model) {
     span.setAttribute("class", spanClass.value);
     button.appendChild(span);
     
+    //NEW DIV
     var div2 = document.createElement("div");
     var div2class = document.createAttribute("class");
     var div2Id = document.createAttribute("id");
@@ -88,6 +92,15 @@ var sidebar = function (card, model) {
     inputBox.setAttribute("min", minimum.value);
     inputDiv.append(inputBox);
 
+    var summaryDiv = document.createElement("div");
+    var summaryDivId = document.createAttribute("id");
+    var summaryDivClass = document.createAttribute("class");
+    summaryDivClass.value = "col-sm-12";
+    summaryDivId.value = "summaryDiv";
+    summaryDiv.setAttribute("id", summaryDivId.value);
+    summaryDiv.setAttribute("class", summaryDivClass.value);
+    innerdiv.appendChild(summaryDiv);
+    
     var summaryBar = document.createElement("div");
     var summaryId = document.createAttribute("id");
     var summaryClass = document.createAttribute("class");
@@ -95,11 +108,11 @@ var sidebar = function (card, model) {
     summaryId.value = "summaryBar";
     summaryBar.setAttribute("id", summaryId.value);
     summaryBar.setAttribute("class", summaryClass.value);
-    innerdiv.appendChild(summaryBar);
+    summaryDiv.appendChild(summaryBar);
     
     var dishName = document.createElement("p");
     var DNClass = document.createAttribute("class");
-    DNClass.value = "col-sm-6";
+    DNClass.value = "col-6";
     dishName.setAttribute("class", DNClass.value);
     var DN = document.createTextNode("Dish Name");
     dishName.appendChild(DN);
@@ -109,17 +122,63 @@ var sidebar = function (card, model) {
 
     var cost = document.createElement("p");
     var costClass = document.createAttribute("class");
-    costClass.value = "col-sm-6";
+    var costAlign = document.createAttribute("align");
+    costClass.value = "col-6";
+    costAlign.value = "right";
     cost.setAttribute("class", costClass.value);
-    var totcost = document.createTextNode("Total Cost");
+    cost.setAttribute("align", costAlign.value);
+    var totcost = document.createTextNode("Cost");
     cost.appendChild(totcost);
     summaryBar.appendChild(cost);
     
+    model.addDishToMenu(1);
+    model.addDishToMenu(2);
+    var allSelected = model.getAllSelected();
+    var x;
+    console.log(allSelected)
+    var priceDiv = document.createElement("div");
+    var priceId = document.createAttribute("id");
+    var priceClass = document.createAttribute("class");
+    priceClass.value = "col-sm-12";
+    priceId.value = "priceId";
+    priceDiv.setAttribute("id", priceId.value);
+    priceDiv.setAttribute("class", priceClass.value);
+    innerdiv.appendChild(priceDiv);
     
-
-    
-  
-    
+    for (x in allSelected) {
+        var tempRow = document.createElement("div");
+        var tempClass = document.createAttribute("class");
+        tempClass.value = "row";
+        tempRow.setAttribute("class", tempClass.value);
+        
+        
+        var nameCol = document.createElement("div");
+        var xname = document.createElement("p");
+        var nameOfDish = document.createTextNode(allSelected[x].name);
+        xname.appendChild(nameOfDish);
+        var nameColId = document.createAttribute("id");
+        var nameColClass = document.createAttribute("class");
+        nameColClass.value = "col-6";
+        nameCol.setAttribute("class", nameColClass.value);
+        nameCol.appendChild(xname);
+        tempRow.appendChild(nameCol);
+        
+        var singleDish = [allSelected[x]];
+        var totalPrice = model.getTotalMenuPrice(singleDish);
+        
+        var priceCol = document.createElement("div");
+        var xprice = document.createElement("p");
+        var priceCalc = document.createTextNode(totalPrice);
+        var priceColId = document.createAttribute("id");
+        var priceColClass = document.createAttribute("class");
+        priceColClass.value = "col-6";
+        priceCol.setAttribute("class", priceColClass.value);
+        xprice.appendChild(priceCalc);
+        priceCol.appendChild(xprice);
+        tempRow.appendChild(priceCol);
+        
+        priceDiv.appendChild(tempRow);
+    }
 
 
 
