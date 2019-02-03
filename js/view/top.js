@@ -1,5 +1,5 @@
 
-var top = function (card, model) {
+var topView = function (card, model) {
     var niceHeader = card.find("#header");
     
     var topdiv = document.createElement("div");
@@ -23,7 +23,7 @@ var top = function (card, model) {
     console.log(topdiv);
     niceHeader.html(topdiv);
 
-    }
+    
     
  
         topclass.value = "container-fluid";
