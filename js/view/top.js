@@ -1,6 +1,5 @@
 
 var top = function (card, model) {
-	
     var niceHeader = card.find("#header");
     
         var topdiv = document.createElement("div");
@@ -16,13 +15,12 @@ var top = function (card, model) {
         class2.value = "text-center";
     
         topdiv.setAttribute("class", topclass.value);
-        text.setAttribute("style", stylish.value);
+        topdiv.setAttribute("style", stylish.value);
         place.setAttribute("class", class2.value);
                 
         topdiv.appendChild(text);
         topdiv.appendChild(place);
         console.log(topdiv);
-    }
     
     niceHeader.html(topdiv);
- 
+}

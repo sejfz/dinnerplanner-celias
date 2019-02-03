@@ -10,9 +10,6 @@ $(function() {
     var container3 = $("#displayView")
     var DisplayView = new displayView(container3, model);
     
-    var container4 = $("#top")
-    var Top = new top(container4, model);
-    
     var container5 = $("#bannerView")
     var BannerView = new bannerView(container5, model);
     
@@ -27,5 +24,8 @@ $(function() {
     
     var container9 = $("#anotherView")
     var otherView = new anotherView(container9, model);
+    
+    var container4 = $("#top")
+    var Top = new top(container4, model);
     
 });
