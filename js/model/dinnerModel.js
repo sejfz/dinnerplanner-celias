@@ -147,6 +147,7 @@ var DinnerModel = function () {
 // start with observers and controller stuff here!
 
     var listObservers = [];
+
     this.addObserver = function(observer) {
         listObservers.push(observer);
     }

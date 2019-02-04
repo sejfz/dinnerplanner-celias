@@ -3,6 +3,9 @@ $(function() {
     // Views here
     
     var model = new DinnerModel();
+    var container1 = $("#firstView")
+    var firstPageView = new firstView(container1, model);
+    
     var container = $("#ingredView")
     var IngredientView = new ingredView(container, model);
     
@@ -29,6 +32,8 @@ $(function() {
     
     // Controllers here
     
+	var homePageController = new homeController(firstPageView, model);
+	
     
     
 });
