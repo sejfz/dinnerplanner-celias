@@ -143,6 +143,20 @@ var DinnerModel = function () {
     }
     
 }
+
+// start with observers and controller stuff here!
+
+    var listObservers = [];
+    this.addObserver = function(observer) {
+        listObservers.push(observer);
+    }
+
+    var notiftObservers = function(object) {
+        for(thisObserver = 0; thisObserver < listObservers.length; thisObserver++){
+            listObservers[thisObserver].update(object);
+        }
+    }
+    
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and

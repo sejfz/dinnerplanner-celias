@@ -1,5 +1,7 @@
 $(function() {
-        
+       
+    // Views here
+    
     var model = new DinnerModel();
     var container = $("#ingredView")
     var IngredientView = new ingredView(container, model);
@@ -24,4 +26,9 @@ $(function() {
     
     var container7 = $("#totcostView")
     var TotCostView = new totcostView(container7, model);
+    
+    // Controllers here
+    
+    
+    
 });
