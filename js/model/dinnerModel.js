@@ -147,12 +147,13 @@ var DinnerModel = function () {
 // start with observers and controller stuff here!
 
     var listObservers = [];
+    console.log(listObservers);
 
-    this.addObserver = function(observer) {
-        listObservers.push(observer);
+    this.addObserver = function(o) {
+        listObservers.push(o);
     }
 
-    var notiftObservers = function(object) {
+    this.notiftObservers = function(object) {
         for(thisObserver = 0; thisObserver < listObservers.length; thisObserver++){
             listObservers[thisObserver].update(object);
         }
