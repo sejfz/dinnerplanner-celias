@@ -1,7 +1,13 @@
 var firstView = function(container, model){
     
     
-     this.buttonClick = container.find("#welcomebtn");    var Menu = model.allDishesEver();
+    var btn= document.getElementById("welcomebtn");
+    var listener= function(){
+      alert("Hej");
+    }
+
+    btn.addEventListener("mouseup", listener , false);
+    btn.addEventListener("click", listener , false);
     
     
     

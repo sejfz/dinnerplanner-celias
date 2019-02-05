@@ -7,5 +7,4 @@ var homeController = function (view, model, view2) {
         x.style.display = "none";
     }
 
-    view.buttonClick.addEventListener("mouseup", listener , false);
 }
