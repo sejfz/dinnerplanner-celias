@@ -142,10 +142,6 @@ var DinnerModel = function () {
         return dishes;
     }
     
-}
-
-// start with observers and controller stuff here!
-
     var listObservers = [];
     console.log(listObservers);
 
@@ -158,6 +154,12 @@ var DinnerModel = function () {
             listObservers[thisObserver].update(object);
         }
     }
+    
+}
+
+// start with observers and controller stuff here!
+
+
     
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
