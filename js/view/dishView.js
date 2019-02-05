@@ -52,7 +52,6 @@ var dishView = function (card, model) {
         
         
         divList.push(topdiv);
-        console.log(topdiv)
     }
     
     allName.html(divList);

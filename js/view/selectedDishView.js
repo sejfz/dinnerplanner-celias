@@ -61,7 +61,6 @@ var selectedView = function (card, model) {
         
         
         divList.push(topdiv);
-        console.log(suparr)
     }
     
     allName.html(divList);

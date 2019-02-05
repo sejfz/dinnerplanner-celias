@@ -80,7 +80,6 @@ var anotherView = function (container, model) {
         preparationDiv.appendChild(prepP);
         
         names.push(card);
-        console.log(card)
         
     }
 
