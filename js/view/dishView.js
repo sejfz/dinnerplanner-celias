@@ -53,7 +53,29 @@ var dishView = function (card, model) {
         
         divList.push(topdiv);
     }
-    
+    var allTypes = card.find("#allTypes");
+    console.log(allTypes)
+    var object = model.getAllTypes();
+    var select = document.createElement("select");
+    var option = document.createElement("option");
+    var optionValue = document.createAttribute("value");
+    var optionName = document.createTextNode("All");
+    optionValue.value = "all"
+    option.setAttribute("value", optionValue.value);
+    option.appendChild(optionName);
+    select.appendChild(option);
+    for (stuff in object){
+        var option = document.createElement("option");
+        var optionValue = document.createAttribute("value");
+        var optionName = document.createTextNode(object[stuff].charAt(0).toUpperCase() + object[stuff].slice(1));
+        optionValue.value = object[stuff];
+        option.setAttribute("value", optionValue.value);
+        option.appendChild(optionName);
+        select.appendChild(option);
+        console.log(select)
+
+    }
+    allTypes.html(select);
     allName.html(divList);
     
 }

@@ -20,7 +20,7 @@
 
         <!-- first page -->
 
-          <div id="firstView">
+    <div id="firstView">
               
           <div class="container">
               <br/>
@@ -34,14 +34,42 @@
             </div>
       </div>
         
-        <div id="sidebar" class="col-sm-3 container">
+
+        
+        
+        <!-- Food feed page -->
+    <div class="row">
+        <div id="sidebar" class="col-sm-3 container" style="display: none">
             <span id="sidb">
                     
             </span>
         </div>
         
-        
-        
+        <div id="dishView" class="col-sm-9" style="display: none">
+            <p><b>Find a dish</b></p>
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <input type="text" class="form-control" aria-label="Small" placeholder="Enter key words" aria-describedby="inputGroup-sizing-sm">
+                    <span id="allTypes"></span>
+                    
+                    <!-- <select>
+                        <option value="all">All</option>
+                        <option value="starter">Starter</option>
+                        <option value="main dish">Main Dish</option>
+                        <option value="dessert">Dessert</option>
+                    </select> -->
+                    <button type="button" class="btn btn-warning btn-sm">Search</button>
+                </div>
+            </div>
+                
+             <div class="container">
+                <br>
+                <div class="row" id="pic">
+
+                </div>
+            </div>
+         </div>
+    </div>
         
         
     <!-- jQuery -->

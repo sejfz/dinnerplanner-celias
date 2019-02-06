@@ -21,12 +21,11 @@ var DinnerModel = function () {
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-        var type = "starter";
-        var listNames = "";
+        var listNames = [];
         var x;
         for (x in dishes) {
             if (type === dishes.type) {
-            listNames += dishes.name;
+                listNames.push(dishes[x]);
         }
             console.log(listNames);
         }
@@ -138,6 +137,18 @@ var DinnerModel = function () {
 			}
 		}
 	}
+    
+    this.getAllTypes = function () {
+        var allTypeList = [];
+        for (type in dishes) {
+            var newType = dishes[type].type;
+            if (allTypeList.includes(newType) == false){
+                allTypeList.push(dishes[type].type);
+            } 
+        }
+        return allTypeList;
+    }
+    
     this.allDishesEver = function(){
         return dishes;
     }

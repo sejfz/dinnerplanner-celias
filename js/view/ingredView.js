@@ -1,7 +1,7 @@
 
 var ingredView = function (card, model) {
     var allIngredients = card.find("#ingredientList");
-    model.addDishToMenu(1);
+    //model.addDishToMenu(1);
     
     var getPeople = card.find("#numpeep");
     
@@ -10,13 +10,13 @@ var ingredView = function (card, model) {
     var str2 = "";
 
     var allSelected = model.getAllSelected();
-    var arr = model.getAllIngredients(allSelected);
+    var arr = model.getAllIngredients([dishes[0]]);
     var numguest = model.getNumberOfGuests();
     for (x in arr) {
         str += numguest * arr[x].quantity + " " + arr[x].unit + " " + arr[x].name + " " + numguest * arr[x].price + " SEK" + "<br/>";
         }
     
-    str += "<strong> Total: " + model.getTotalMenuPrice(allSelected) + "</strong>";
+    str += "<strong> Total: " + model.getTotalMenuPrice([dishes[0]]) + "</strong>";
     str2 = numguest;
     
     allIngredients.html(str);

@@ -33,7 +33,8 @@ $(function() {
     // Controllers here
     
 	var homePageController = new homeController(firstPageView, model);
-	
+	var sidebController = new sidebarController(sideb, model);
+
     
     
 });

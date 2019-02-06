@@ -1,9 +1,9 @@
-var homeController = function (view, model) {
+var dishController = function (view, model) {
 	
 
     var first = document.getElementById("firstView");
     var sideb = document.getElementById("sidebar");
-    var foodFeed = document.getElementById("dishView");
+    var foodFeed = document.getElementById("searchView");
 
     
     view.buttonClick().addEventListener("click", function(){

@@ -131,8 +131,8 @@ var sidebar = function (card, model) {
     cost.appendChild(totcost);
     summaryBar.appendChild(cost);
     
-    var bar = model.addDishToMenu(1);
-    var bar = model.addDishToMenu(101);
+    //var bar = model.addDishToMenu(1);
+    //var bar = model.addDishToMenu(101);
     var allSelected = model.getAllSelected();
     var x;
     console.log(allSelected)
