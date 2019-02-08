@@ -32,8 +32,10 @@ $(function() {
     
     // Controllers here
     
-	var homePageController = new homeController(firstPageView, model);
+	var homePageController = new homeController(firstPageView, model, fullMenu);
+	var dishViewbController = new dishController(fullMenu, model);
 	var sidebController = new sidebarController(sideb, model);
+
 
     
     

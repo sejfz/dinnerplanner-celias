@@ -3,6 +3,22 @@ var DinnerModel = function () {
  
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
+    var variable;
+    var listObservers = [];
+    console.log(listObservers);
+
+    this.addObserver = function(o) {
+        listObservers.push(o);
+        console.log("lägg till observer")
+    }
+
+    var notifyObservers = function(object) {
+        console.log("hej");
+        for(var thisObserver = 0; thisObserver < listObservers.length; thisObserver++){
+            listObservers[thisObserver](object);
+        }
+    }
+    
     var dishList = [];
     this.getAllSelected = function(){
         return dishList;
@@ -109,7 +125,21 @@ var DinnerModel = function () {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function(type,filter) {
-	  return this.dishes.filter(function(dish) {
+        if (type === "all") {
+            var allTypes = this.getAllTypes();
+            var fullList = [];
+            var finalArray = [];
+            for (thing in allTypes) {
+                fullList.push(this.getAllDishes(allTypes[thing], filter));
+            }
+            for (arrays in fullList) {
+                finalArray = finalArray.concat(fullList[arrays]);
+                console.log(finalArray);
+
+            }
+            return finalArray;
+        }
+	  return dishes.filter(function(dish) {
 		let found = true;
 		if(filter){
 			found = false;
@@ -125,9 +155,38 @@ var DinnerModel = function () {
 		}
 	  	return dish.type == type && found;
 	  });	
+
 	}
-                
     
+    
+    this.setAllDishes = function(parameter) {
+        variable = parameter;
+        notifyObservers("catchySubmit");
+        
+    }
+    
+    this.getAllDishes2 = function() {
+        return variable;
+    }
+    
+    
+    this.newGetAllDishes = function (type) {
+        var allDishList = [];
+        if (type === "all") {
+            notifyObservers("catchySubmit");
+            console.log(dishes);
+            return dishes;
+        }
+        else {
+        for (var dish in dishes) {
+            if (type === dishes[dish].type) {
+                allDishList.push(dishes[dish]);
+            }
+        }
+        console.log(allDishList)
+        return allDishList;
+        }
+    }
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
@@ -153,18 +212,7 @@ var DinnerModel = function () {
         return dishes;
     }
     
-    var listObservers = [];
-    console.log(listObservers);
 
-    this.addObserver = function(o) {
-        listObservers.push(o);
-    }
-
-    this.notiftObservers = function(object) {
-        for(thisObserver = 0; thisObserver < listObservers.length; thisObserver++){
-            listObservers[thisObserver].update(object);
-        }
-    }
     
 }
 

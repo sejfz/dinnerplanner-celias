@@ -1,17 +1,17 @@
 var dishController = function (view, model) {
 	
+    console.log(document.getElementById("allTypes").value)
 
-    var first = document.getElementById("firstView");
-    var sideb = document.getElementById("sidebar");
-    var foodFeed = document.getElementById("searchView");
 
+    view.submitButton.click( function() {
+     //   alert("jag funkar");
+        this.filterId = document.getElementById("filterInput").value;
+        this.selected = document.getElementById("allTypes").value;
+
+        var f = model.getAllDishes(this.selected, this.filterId);
+        console.log(f)
+        model.setAllDishes(f);
+    })
     
-    view.buttonClick().addEventListener("click", function(){
-        first.style.display = "none";
-        sideb.style.display = "block";
-        foodFeed.style.display = "block";
-
-        
-    } , false);
 
 }

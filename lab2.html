@@ -9,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 
   </head>
     <body>
@@ -38,7 +40,7 @@
         
         
         <!-- Food feed page -->
-    <div class="row">
+
         <div id="sidebar" class="col-sm-3 container" style="display: none">
             <span id="sidb">
                     
@@ -49,16 +51,17 @@
             <p><b>Find a dish</b></p>
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
-                    <input type="text" class="form-control" aria-label="Small" placeholder="Enter key words" aria-describedby="inputGroup-sizing-sm">
-                    <span id="allTypes"></span>
+                    <input id="filterInput" type="text" class="form-control" aria-label="Small" placeholder="Enter key words" aria-describedby="inputGroup-sizing-sm">
                     
-                    <!-- <select>
+                    <select id="allTypes">
                         <option value="all">All</option>
                         <option value="starter">Starter</option>
                         <option value="main dish">Main Dish</option>
                         <option value="dessert">Dessert</option>
-                    </select> -->
-                    <button type="button" class="btn btn-warning btn-sm">Search</button>
+
+                        
+                    </select>
+                    <input id="allTypesSubmit" type="submit" value="Search">
                 </div>
             </div>
                 
@@ -69,8 +72,25 @@
                 </div>
             </div>
          </div>
-    </div>
+
+    <style>
+        body {
+            display: flex;
+            flex-flow: row wrap;
+            }
+        .container {
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        #pic {
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
         
+
+
+        }
+    </style>
         
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -91,5 +111,7 @@
     <script src="js/view/topView.js"></script>
     <script src="js/view/firstView.js"></script>
     <script src="js/view/firstController.js"></script>
+    <script src="js/view/dishViewController.js"></script>
+    <script src="js/view/sidebarController.js"></script>
 
     </body>
