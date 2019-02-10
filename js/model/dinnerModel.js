@@ -4,9 +4,11 @@ var DinnerModel = function () {
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
     var filterWord;
-    var numberOfGuests = 0;
+    var numberOfGuests = 1;
     var listObservers = [];
     var totMenuPrice = 0;
+    var chosenDish;
+    
     console.log(listObservers);
 
     this.addObserver = function(o) {
@@ -21,6 +23,7 @@ var DinnerModel = function () {
         }
     }
     
+    
     var dishList = [];
     this.getAllSelected = function(){
         return dishList;
@@ -28,8 +31,8 @@ var DinnerModel = function () {
     
 	this.setNumberOfGuests = function(num) {
         numberOfGuests = num;
-        if (numberOfGuests < 0) {
-            numberOfGuests = 0;
+        if (numberOfGuests < 1) {
+            numberOfGuests = 1;
         }
         notifyObservers("guestsUpdated");
         //we assume set will be used to update getGuest by user clicking in more guests
@@ -50,7 +53,7 @@ var DinnerModel = function () {
             console.log(listNames);
         }
         console.log(listNames);
-        return listName;
+        return listNames;
         
 	}
 
@@ -111,8 +114,8 @@ var DinnerModel = function () {
                 dishList.push(newDish);
             }
         }
-        
-        return dishList;
+        console.log(dishList)
+        notifyObservers("menuUpdated");
     }
     
     
@@ -121,7 +124,7 @@ var DinnerModel = function () {
 
         for(dish in arr){
             if(id === arr[dish].id){
-                arr.splice(dish);
+                arr.splice(dish, 1);
             }
         }
         return arr;
@@ -175,24 +178,6 @@ var DinnerModel = function () {
         return filterWord;
     }
     
-    
-    this.newGetAllDishes = function (type) {
-        var allDishList = [];
-        if (type === "all") {
-            notifyObservers("catchySubmit");
-            console.log(dishes);
-            return dishes;
-        }
-        else {
-        for (var dish in dishes) {
-            if (type === dishes[dish].type) {
-                allDishList.push(dishes[dish]);
-            }
-        }
-        console.log(allDishList)
-        return allDishList;
-        }
-    }
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
@@ -202,6 +187,17 @@ var DinnerModel = function () {
 			}
 		}
 	}
+    
+    this.setDisplayDish = function(id) {
+        chosenDish = this.getDish(id);
+        notifyObservers("updateCurrentDish");
+    }
+    
+    this.getDisplayDish = function() {
+        return chosenDish;
+        
+    }
+    
     
     this.getAllTypes = function () {
         var allTypeList = [];

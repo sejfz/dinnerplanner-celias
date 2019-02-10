@@ -24,7 +24,6 @@ var topView = function (card, model) {
     text.appendChild(DP);
     topdiv.appendChild(text);
     topdiv.appendChild(place);
-    console.log(topdiv)
     niceHeader.html(topdiv);
 
     }

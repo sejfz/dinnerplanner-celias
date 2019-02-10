@@ -1,24 +1,31 @@
 
 var ingredView = function (card, model) {
     var allIngredients = card.find("#ingredientList");
-    //model.addDishToMenu(1);
-    
+    this.addToMenu = card.find("#addToMenu");
     var getPeople = card.find("#numpeep");
-    
-    var x;
-    var str = "";
-    var str2 = "";
+    this.updateIngredients = function (keyString) {
+        if (keyString === "updateIngredients" || keyString === "guestsUpdated" || keyString === "updateCurrentDish"){
+            
+            var x;
+            var str = "";
+            var str2 = "";
 
-    var allSelected = model.getAllSelected();
-    var arr = model.getAllIngredients([dishes[0]]);
-    var numguest = model.getNumberOfGuests();
-    for (x in arr) {
-        str += numguest * arr[x].quantity + " " + arr[x].unit + " " + arr[x].name + " " + numguest * arr[x].price + " SEK" + "<br/>";
+            var currentDish = model.getDisplayDish();
+            if (currentDish != undefined){
+                var arr = model.getAllIngredients([currentDish]);
+                var numguest = model.getNumberOfGuests();
+                for (x in arr) {
+                    str += numguest * arr[x].quantity + " " + arr[x].unit + " " + arr[x].name + " " + numguest * arr[x].price + " SEK" + "<br/>";
+                    }
+
+                str += "<strong> Total: " + model.getTotalMenuPrice([currentDish]) + "</strong>";
+                str2 = numguest;
+                allIngredients.html(str);
+                getPeople.html(str2);
+            }
         }
-    
-    str += "<strong> Total: " + model.getTotalMenuPrice([dishes[0]]) + "</strong>";
-    str2 = numguest;
-    
-    allIngredients.html(str);
-    getPeople.html(str2);
+    }
+    this.updateIngredients("updateIngredients")
+    model.addObserver(this.updateIngredients);
+
 }

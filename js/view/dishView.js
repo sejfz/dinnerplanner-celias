@@ -94,7 +94,7 @@ var dishView = function (card, model) {
 
             allName.html(divList);
             console.log(card.find("#pic"))
-            this.dishButton = card.find(".goToClass");
+            this.dishButton = card.find("#pic");
 
         }
 

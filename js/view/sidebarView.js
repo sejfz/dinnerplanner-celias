@@ -9,12 +9,12 @@ var sidebarView = function(container, model) {
     
     
     var updateNumber = function (keyString) {
-        if (keyString === "guestsUpdated") {
+        if (keyString === "guestsUpdated" || keyString === "menuUpdated") {
             var guestCount = model.getNumberOfGuests();
             totalGuests.html(guestCount);
 
-            var adde = model.addDishToMenu(1);
-            var adde = model.addDishToMenu(100);
+            /*var adde = model.addDishToMenu(1);
+            var adde = model.addDishToMenu(100);*/
 
 
             var allSelected = model.getAllSelected();

@@ -105,33 +105,119 @@
          </div>
 
         
+        <!-- Ingredients view -->
+
+
+        <div id="displayView" class="col-sm-6" style="display: none">
+                <h3><span style="text-transform: uppercase" id="name"></span></h3>
+                <p><span id="pictures"></span></p>
+                    <button id="backButton" type="button" class="btn btn-warning btn-sm">Back to search</button>
+                        <h3>PREPARATION</h3>
+                            <p><span id="instructions"></span></p><br>
+        </div>
+
+
+            <div id="ingredView" class="col-sm-3" style="display: none">
+                    <p><b>Ingredients for <span id="numpeep"></span> people</b></p>
+                        <span id="ingredientList"></span>
+                        <br><br>
+                            <button id="addToMenu" type="button" class="btn btn-warning btn-sm">Add to menu</button>
+                        <br>
+            </div>
+                
+    <style>
+          
+        body {
+            display: flex;
+            flex-flow: row wrap;
+            }
+        
+        #ingredView {
+            border-style: solid;
+            border-color: #FBDE91;
+            background-color: #FFF6DE;
+        }
+        
+        #sidebarView {
+            border-style: solid;
+            border-color: #FBDE91;
+        }
+        
+      </style>
+        
+        
+        
+        
         <!-- Final menu page -->
         
     <div class="container" style="display: none" id="finalPage">
-        <div class="row justify-content-sm-center">
-            <div class="input-group">
-                <div id="bannerView" class="col-sm-12" style="text-align: center">
-                    <h1>My Dinner: <span id="numpeep"></span> people</h1>
-                    <button type="button" class="btn btn-warning btn-sm">Go back and edit dinner</button></div>
-                    <br></div>
-
-
-                  <div id="selectedDishView" class="col">
+        <div id="selectedDishView" class="row justify-content-sm-center">
+            <h1 style="text-align: center" class="col-12">My Dinner: <span id="numpeep"></span> people</h1>
+            <button id="backToFeed" type="button" class="btn btn-warning btn-arrow-right col-12">Go back and edit dinner</button>
+            <div class="input-group col-sm-6">
+                <div class="col-sm-12" style="text-align: center">
+                    <div class="col">
                       <div class="row" id="selected">
-                      <p><span id="cost"></span></p>
-                  </div></div>
-
-
-                  <div id="totcostView" class="col-sm-4">
-                    <p>Total: <span id="total"></span></p>
-                  </div>
-                    <div class="col-sm-12">
-                      <div class="text-center"><button type="button" class="btn btn-warning btn-sm">Print Full Recipe</button>
-                      </div>
+                        <p><span id="cost"></span></p>
+                        </div>
                     </div>
+                </div>
+            </div>
+
+
+            <div id="totcostView" class="col-sm-6">
+                <p>Total: <span id="total"></span></p>
+            </div>
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <button id="printButton" type="button" class="btn btn-warning btn-sm">Print Full Recipe</button>
+                </div>
+            </div>
         </div>
     </div>
         
+        
+        <!-- Summary View -->
+ 
+    <div id="summaryView" class="input-group" style="display: none">
+        <div id="anotherView" class="col-sm-12" style="text-align: center">
+            <h1>My Dinner: <span id="numpeep"></span> people</h1>
+            <button id="goBack" type="button" class="btn btn-warning btn-sm">Go back and edit dinner</button>
+        
+    
+            
+            <div class="container">
+                <div class="col-sm-12" id="info">
+
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <style>
+          
+        body {
+            display: flex;
+            flex-flow: row wrap;
+            }
+
+        
+        
+        #selectedDishView {
+            padding-top: 20px;
+            border-bottom-style: solid;
+            border-width: 1px;
+            border-color: darkgray;
+        }
+        
+        #totcostView {
+            padding-top: 20px;
+            border-left: solid;
+            border-width: 1px;
+            border-color: darkgray;
+        }
+        
+      </style>   
         
         
     <style>
@@ -174,5 +260,10 @@
     <script src="js/view/firstController.js"></script>
     <script src="js/view/dishViewController.js"></script>
     <script src="js/view/sidebarController.js"></script>
+    <script src="js/view/displayViewController.js"></script>
+    <script src="js/view/ingredViewController.js"></script>
+    <script src="js/view/selectedDishViewController.js"></script>
+    <script src="js/view/anotherViewController.js"></script>
+
 
     </body>

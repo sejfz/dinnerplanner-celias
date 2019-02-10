@@ -2,18 +2,25 @@
 var displayView = function (container, model) {
     var getName = container.find("#name");
     var getInstr = container.find("#instructions");
-    var getPic = container.find("#pictures")
-    
-    var str = "";
-    var str2 = "";
-    var str3 ="";
+    var getPic = container.find("#pictures");
+    this.backButton = container.find("#backButton");
+    this.updateCurrentDish = function(keyString) {       
+        if (keyString === "updateCurrentDish") {
+            var str = "";
+            var str2 = "";
+            var str3 ="";
 
-    str = dishes[0].name;
-    str2 = dishes[0].description;
-    str3 = "<img src=\"images/" + dishes[0].image + "\">";
-    
-    getName.html(str);
-    getInstr.html(str2);
-    getPic.html(str3);
+            var chosen = model.getDisplayDish();
+            
+            
+            str = chosen.name;
+            str2 = chosen.description;
+            str3 = "<img src=\"images/" + chosen.image + "\">";
 
+            getName.html(str);
+            getInstr.html(str2);
+            getPic.html(str3);
+        }
+    }
+    model.addObserver(this.updateCurrentDish);
 }

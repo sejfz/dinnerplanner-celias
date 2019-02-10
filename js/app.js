@@ -13,7 +13,7 @@ $(function() {
     var fullMenu = new dishView(container2, model);
 
     var container3 = $("#displayView")
-    var DisplayView = new displayView(container3, model);
+    var displayV = new displayView(container3, model);
     
     var container8 = $("#sidebar")
     //var sideb = new sidebar(container8, model);
@@ -36,7 +36,10 @@ $(function() {
 	var homePageController = new homeController(firstPageView, model, fullMenu);
 	var dishViewbController = new dishController(fullMenu, model);
 	var sidebController = new sidebarController(sideb, model);
-
+    var displayController = new displayViewController(displayV, model);
+    var ingredientController = new ingredientViewController(IngredientView, model);
+    var selectedDishController = new selectedDishViewController(selView, model);
+    var anotherController = new anotherViewController(otherView, model);
 
     
     
