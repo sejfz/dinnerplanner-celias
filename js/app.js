@@ -16,7 +16,8 @@ $(function() {
     var DisplayView = new displayView(container3, model);
     
     var container8 = $("#sidebar")
-    var sideb = new sidebar(container8, model);
+    //var sideb = new sidebar(container8, model);
+    var sideb = new sidebarView(container8, model);
     
     var container9 = $("#anotherView")
     var otherView = new anotherView(container9, model);

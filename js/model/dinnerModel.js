@@ -3,8 +3,10 @@ var DinnerModel = function () {
  
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
-    var variable;
+    var filterWord;
+    var numberOfGuests = 0;
     var listObservers = [];
+    var totMenuPrice = 0;
     console.log(listObservers);
 
     this.addObserver = function(o) {
@@ -13,7 +15,7 @@ var DinnerModel = function () {
     }
 
     var notifyObservers = function(object) {
-        console.log("hej");
+        console.log(object);
         for(var thisObserver = 0; thisObserver < listObservers.length; thisObserver++){
             listObservers[thisObserver](object);
         }
@@ -25,14 +27,16 @@ var DinnerModel = function () {
     }
     
 	this.setNumberOfGuests = function(num) {
-        var setGuest = num;
-            return setGuest;
+        numberOfGuests = num;
+        if (numberOfGuests < 0) {
+            numberOfGuests = 0;
+        }
+        notifyObservers("guestsUpdated");
         //we assume set will be used to update getGuest by user clicking in more guests
 	}
 	
 	this.getNumberOfGuests = function() {
-        var getnumberOfGuests = 2;
-            return getnumberOfGuests;
+            return numberOfGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type 
@@ -88,6 +92,8 @@ var DinnerModel = function () {
         return totPrice + " SEK";
 		//TODO Lab 1
 	}
+    
+
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
@@ -159,14 +165,14 @@ var DinnerModel = function () {
 	}
     
     
-    this.setAllDishes = function(parameter) {
-        variable = parameter;
+    this.setAllDishes = function(type) {
+        filterWord = type;
         notifyObservers("catchySubmit");
         
     }
     
     this.getAllDishes2 = function() {
-        return variable;
+        return filterWord;
     }
     
     

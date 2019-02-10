@@ -43,7 +43,38 @@
 
         <div id="sidebar" class="col-sm-3 container" style="display: none">
             <span id="sidb">
-                    
+                <nav id="navId" class="navbar navbar-expand-sm navbar-light">
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="nav navbar-nav collapse navbar-collapse">
+                            <h4 class="col-sm-12">My Dinner</h4>
+                            <div class="col-sm-12" id="inputId">People: <span id="guestnumber"></span>
+                                
+                                <button class="form-control input-number col-sm-6" type="button" id="plusGuestButton">
+                                    <span class="fas fa-plus"></span>
+                                </button>
+                                <button class="form-control input-number col-sm-6" type="button" id="minusGuestButton">
+                                    <span class="fas fa-minus"></span>
+                                </button>
+                            </div>
+                            <div id="summaryDiv" class="col-sm-12">
+                                <div id="summaryBar" class="row">
+                                    <p class="col-6">Dish Name</p>
+                                    <p class="col-6" align="right">Cost</p>
+                                </div>
+                            </div>
+                            <span id="menuDishes"></span>
+                            <br>
+                            <div id="priceId" class="col-sm-12"></div>
+                            <div align="right" class="col-sm-12" id="finalId">Totalt: 
+                                <span id="totalPrice"></span>
+                            </div>
+                            <button class="btn btn-warning" id="confirmButtonId">Confirm Dinner</button>
+                        </div>
+                    </div>
+                </nav>
             </span>
         </div>
         
@@ -73,6 +104,36 @@
             </div>
          </div>
 
+        
+        <!-- Final menu page -->
+        
+    <div class="container" style="display: none" id="finalPage">
+        <div class="row justify-content-sm-center">
+            <div class="input-group">
+                <div id="bannerView" class="col-sm-12" style="text-align: center">
+                    <h1>My Dinner: <span id="numpeep"></span> people</h1>
+                    <button type="button" class="btn btn-warning btn-sm">Go back and edit dinner</button></div>
+                    <br></div>
+
+
+                  <div id="selectedDishView" class="col">
+                      <div class="row" id="selected">
+                      <p><span id="cost"></span></p>
+                  </div></div>
+
+
+                  <div id="totcostView" class="col-sm-4">
+                    <p>Total: <span id="total"></span></p>
+                  </div>
+                    <div class="col-sm-12">
+                      <div class="text-center"><button type="button" class="btn btn-warning btn-sm">Print Full Recipe</button>
+                      </div>
+                    </div>
+        </div>
+    </div>
+        
+        
+        
     <style>
         body {
             display: flex;
@@ -104,7 +165,7 @@
     <script src="js/view/ingredView.js"></script>
     <script src="js/view/dishView.js"></script>
     <script src="js/view/displayView.js"></script>
-    <script src="js/view/sidebar.js"></script>
+    <script src="js/view/sidebarView.js"></script>
     <script src="js/view/selectedDishView.js"></script>
     <script src="js/view/totcostView.js"></script>
     <script src="js/view/anotherView.js"></script>

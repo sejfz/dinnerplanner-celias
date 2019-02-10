@@ -1,17 +1,24 @@
 var sidebarController = function (view, model) {
 	
     
-    var plusGuestButton = document.getElementById("plusGuestButton");
-    var minusGuestButton = document.getElementById("minusGuestButton");
-    var foodFeed = document.getElementById("searchView");
+    var sideb = document.getElementById("sidebar");
+    var foodFeed = document.getElementById("dishView");
+    var finalPage = document.getElementById("finalPage");
 
     
-    view.plusGuestButton.addEventListener("click", function(){
-        first.style.display = "none";
-        sideb.style.display = "block";
-        foodFeed.style.display = "block";
+    view.plusGuestButton.click(function(){
+        console.log("plus")
+        model.setNumberOfGuests(model.getNumberOfGuests() + 1);
+        console.log(model.getNumberOfGuests())
+    });
+    
+    view.minusGuestButton.click(function(){
+        model.setNumberOfGuests(model.getNumberOfGuests() - 1);
+    });
 
-        
-    } , false);
-
-}*/
+    view.confirmButton.click(function(){
+        sideb.style.display = "none";
+        foodFeed.style.display = "none";
+        finalPage.style.display = "inline";
+    })
+}

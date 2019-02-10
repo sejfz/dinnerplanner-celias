@@ -6,9 +6,7 @@ var dishView = function (card, model) {
     //this.selected = document.getElementById("allTypes").options[document.getElementById("allTypes").selectedIndex].value;
     //    console.log(this.selected + "selected");
     
-    console.log("utanför update")
     this.updatee = function (catchyName) {
-        console.log("inne i update");
         if (catchyName === "catchySubmit") {
             
             
@@ -51,7 +49,20 @@ var dishView = function (card, model) {
 
                 img.setAttribute("src", src.value);
                 img.setAttribute("class", classs.value);
-
+                
+                var goToButton = document.createElement("button");
+                var goToClass = document.createAttribute("class");
+                var goToValue = document.createAttribute("value");
+                //var goToId = document.createAttribute("id");
+                var goTo = document.createTextNode("Go to dish page");
+                goToClass.value = "btn btn-warning goToClass";
+                //goToId.value = "goToId";
+                goToValue.value = suparr[x].id;
+                goToButton.setAttributeNode(goToClass);
+                //goToButton.setAttributeNode(goToId);
+                goToButton.setAttributeNode(goToValue);
+                goToButton.appendChild(goTo);
+                div2.appendChild(goToButton);
 
                 topdiv.appendChild(elem);        
                 p.appendChild(names);
@@ -81,9 +92,12 @@ var dishView = function (card, model) {
         //console.log(document.getElementById("allTypesSubmit"));
 
 
-        allName.html(divList);
+            allName.html(divList);
+            console.log(card.find("#pic"))
+            this.dishButton = card.find(".goToClass");
 
         }
+
     }
     /*var objectList = ["<option value=\"all\">All</option>"];
     var object = model.getAllTypes();
@@ -99,8 +113,8 @@ var dishView = function (card, model) {
         console.log(option)
     }
     allTypes.html(objectList);*/
-    this.submitButton = card.find("#allTypesSubmit");
 
+    this.submitButton = card.find("#allTypesSubmit");
     model.addObserver(this.updatee);
 }
  

@@ -1,8 +1,8 @@
 var dishController = function (view, model) {
 	
-    console.log(document.getElementById("allTypes").value)
+    //console.log(document.getElementById("allTypes").value)
 
-
+    view.updatee("catchySubmit");
     view.submitButton.click( function() {
      //   alert("jag funkar");
         this.filterId = document.getElementById("filterInput").value;
@@ -12,6 +12,12 @@ var dishController = function (view, model) {
         console.log(f)
         model.setAllDishes(f);
     })
+    console.log(view.dishButton)
+    view.dishButton.click( function() {
+        alert("click");
+    })
+    
+    
     
 
 }
