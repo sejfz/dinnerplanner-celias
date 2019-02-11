@@ -3,6 +3,7 @@ var ingredientViewController = function(view, model) {
         var selected = model.getDisplayDish();
         var add = model.addDishToMenu(selected.id);
         console.log(add)
+        document.getElementById("confirmButtonId").removeAttribute("disabled");
 
     })
 }
