@@ -65,3 +65,7 @@
 #confirmButtonId {
 
 }
+
+.navbar-collapse.collapse.in {
+  display: block!important;
+}
