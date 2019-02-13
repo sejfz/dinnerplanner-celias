@@ -42,5 +42,4 @@ $(function() {
     var anotherController = new anotherViewController(otherView, model);
 
     
-    
 });

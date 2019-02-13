@@ -10,15 +10,17 @@ var DinnerModel = function () {
     var chosenDish;
     var allDishesAPI = [];
     
-    console.log(listObservers);
+    // console.log(listObservers);
 
+    
     this.addObserver = function(o) {
         listObservers.push(o);
         console.log("lägg till observer")
     }
 
+    
     var notifyObservers = function(object) {
-        console.log(object);
+        // console.log(object);
         for(var thisObserver = 0; thisObserver < listObservers.length; thisObserver++){
             listObservers[thisObserver](object);
         }
@@ -29,6 +31,7 @@ var DinnerModel = function () {
     this.getAllSelected = function(){
         return dishList;
     }
+    
     
 	this.setNumberOfGuests = function(num) {
         numberOfGuests = num;
@@ -43,6 +46,7 @@ var DinnerModel = function () {
             return numberOfGuests;
 	}
 
+    
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
         var listNames = [];
@@ -51,13 +55,14 @@ var DinnerModel = function () {
             if (type === dishes.type) {
                 listNames.push(dishes[x]);
         }
-            console.log(listNames);
+            // console.log(listNames);
         }
-        console.log(listNames);
+        // console.log(listNames);
         return listNames;
         
 	}
 
+    
 	//Returns all the dishes on the menu.
     this.getFullMenu = function() {
         var x;
@@ -69,6 +74,7 @@ var DinnerModel = function () {
         return alldish;
     }
 
+    
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function(list) {
         var ingredientList = [];
@@ -84,6 +90,7 @@ var DinnerModel = function () {
         return ingredientList;
     }
 
+    
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function(list) {
         var ingList = this.getAllIngredients(list);
@@ -97,7 +104,6 @@ var DinnerModel = function () {
 		//TODO Lab 1
 	}
     
-
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
@@ -131,24 +137,25 @@ var DinnerModel = function () {
         return arr;
 	}
 
+    
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	//this.getAllDishes = function(type,filter) {
+    //this.getAllDishes = function(type,filter) {
       //  if (type === "all") {
         //    var allTypes = this.getAllTypes();
           //  var fullList = [];
-            //var finalArray = [];
-            //for (thing in allTypes) {
-              //  fullList.push(this.getAllDishes(allTypes[thing], filter));
-            //}
-            //for (arrays in fullList) {
-              //  finalArray = finalArray.concat(fullList[arrays]);
-                //console.log(finalArray);
+        //    var finalArray = [];
+        //    for (thing in allTypes) {
+          //      fullList.push(this.getAllDishes(allTypes[thing], filter));
+        //    }
+          //  for (arrays in fullList) {
+            //    finalArray = finalArray.concat(fullList[arrays]);
+                // console.log(finalArray);
 
             //}
             //return finalArray;
-        //}
+    //    }
 	  //return dishes.filter(function(dish) {
 	//	let found = true;
 	//	if(filter){
@@ -164,16 +171,16 @@ var DinnerModel = function () {
 	//		}
 	//	}
 	  //	return dish.type == type && found;
-	//  });	
+	  //});	
 
 	//}
-    
     
     this.setAllDishes = function(type) {
         filterWord = type;
         notifyObservers("catchySubmit");
         
     }
+    
     
     this.getAllDishes2 = function() {
         return filterWord;
@@ -189,10 +196,12 @@ var DinnerModel = function () {
 		}
 	}
     
+    
     this.setDisplayDish = function(id) {
         chosenDish = this.getDish(id);
         notifyObservers("updateCurrentDish");
     }
+    
     
     this.getDisplayDish = function() {
         return chosenDish;
@@ -211,35 +220,23 @@ var DinnerModel = function () {
         return allTypeList;
     }
     
+    
     this.allDishesEver = function(){
         return dishes;
     }
     
+
+    // fetch attempts go here babey
+    
     this.getAllDishes = function (type, filter) {
-        return fetch('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search',  
-               {headers:{'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767'
-            }
+        return fetch('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query='+filter+'&type'+type+'number=60',  {
+            headers:{'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767'
+                    }
       }).then(response => response.json())
         .then(data => console.log(data.results))
     } 
-    
+
 }
-
-// fetch attempts go here babey
-
-        // allDishesAPI = fetch('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search',{ 
-           // headers:{   
-             //   'X-Mashape-Key': da2945fb82msh06a2d2bcf229067p16102ejsnaa4f2544e803
-        //    }
-        //}).then(function(response){
-        //    return response.json();
-        //}).then(function(response){
-        //    console.log(response);
-        //});
-    
-
-
-
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
