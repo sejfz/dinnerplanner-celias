@@ -215,7 +215,13 @@ var DinnerModel = function () {
         return dishes;
     }
     
-
+    this.getAllDishes = function (type, filter) {
+        return fetch('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search',  
+               {headers:{'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767'
+            }
+      }).then(response => response.json())
+        .then(data => console.log(data.results))
+    } 
     
 }
 
@@ -232,14 +238,7 @@ var DinnerModel = function () {
         //});
     
 
-this.getAllDishes = function (type, filter) {
-    return fetch('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search',  
-               {headers:{'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767'
-            }
-      }).then(response => response.json())
-        .then(data => console.log(data.results))
-} 
-console.log()
+
 
 
 	// the dishes variable contains an array of all the 
