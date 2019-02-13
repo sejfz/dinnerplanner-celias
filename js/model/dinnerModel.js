@@ -8,6 +8,7 @@ var DinnerModel = function () {
     var listObservers = [];
     var totMenuPrice = 0;
     var chosenDish;
+    var allDishesAPI = [];
     
     console.log(listObservers);
 
@@ -133,39 +134,39 @@ var DinnerModel = function () {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function(type,filter) {
-        if (type === "all") {
-            var allTypes = this.getAllTypes();
-            var fullList = [];
-            var finalArray = [];
-            for (thing in allTypes) {
-                fullList.push(this.getAllDishes(allTypes[thing], filter));
-            }
-            for (arrays in fullList) {
-                finalArray = finalArray.concat(fullList[arrays]);
-                console.log(finalArray);
+	//this.getAllDishes = function(type,filter) {
+      //  if (type === "all") {
+        //    var allTypes = this.getAllTypes();
+          //  var fullList = [];
+            //var finalArray = [];
+            //for (thing in allTypes) {
+              //  fullList.push(this.getAllDishes(allTypes[thing], filter));
+            //}
+            //for (arrays in fullList) {
+              //  finalArray = finalArray.concat(fullList[arrays]);
+                //console.log(finalArray);
 
-            }
-            return finalArray;
-        }
-	  return dishes.filter(function(dish) {
-		let found = true;
-		if(filter){
-			found = false;
-			dish.ingredients.forEach(function(ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
-			}
-		}
-	  	return dish.type == type && found;
-	  });	
+            //}
+            //return finalArray;
+        //}
+	  //return dishes.filter(function(dish) {
+	//	let found = true;
+	//	if(filter){
+	//		found = false;
+	//		dish.ingredients.forEach(function(ingredient) {
+	//			if(ingredient.name.indexOf(filter)!=-1) {
+	//				found = true;
+	//			}
+	//		});
+	//		if(dish.name.indexOf(filter) != -1)
+	//		{
+	//			found = true;
+	//		}
+	//	}
+	  //	return dish.type == type && found;
+	//  });	
 
-	}
+	//}
     
     
     this.setAllDishes = function(type) {
@@ -218,10 +219,29 @@ var DinnerModel = function () {
     
 }
 
-// start with observers and controller stuff here!
+// fetch attempts go here babey
 
-
+        // allDishesAPI = fetch('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search',{ 
+           // headers:{   
+             //   'X-Mashape-Key': da2945fb82msh06a2d2bcf229067p16102ejsnaa4f2544e803
+        //    }
+        //}).then(function(response){
+        //    return response.json();
+        //}).then(function(response){
+        //    console.log(response);
+        //});
     
+
+this.getAllDishes = function (type, filter) {
+  return fetch('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search',{ 
+            headers:{   
+                'X-Mashape-Key': da2945fb82msh06a2d2bcf229067p16102ejsnaa4f2544e803
+            }
+      }).then(response => response.json())
+        .then(data => data.results)
+} 
+
+
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and
