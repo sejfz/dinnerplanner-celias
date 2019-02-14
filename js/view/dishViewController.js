@@ -4,17 +4,25 @@ var dishController = function (view, model) {
     var display = document.getElementById("displayView");
     var foodFeed = document.getElementById("dishView");
     var ingredients = document.getElementById("ingredView");
-    
-    view.updatee("catchySubmit");
+    var newList = [];
     view.submitButton.click( function() {
      //   alert("jag funkar");
         this.filterId = document.getElementById("filterInput").value;
         this.selected = document.getElementById("allTypes").value;
-
-        var f = model.getAllDishes(this.selected, this.filterId);
-        console.log(f)
-        model.setAllDishes(f);
-        console.log(model.newDishList(f))
+        //console.log(model.getDishById());
+        /*var f = model.getAllDishes(this.selected, this.filterId)
+        .then(function(dishes){
+            
+            for (i in dishes){
+                newList.push(dishes[i]);
+            }
+        
+        })
+        console.log(newList)
+        console.log(f + "snap")
+        model.setAllDishes(newList);
+        //console.log(model.newDishList(f))*/
+        view.updatee("catchySubmit");
     })
     //console.log(view.dishButton)
     view.dishButton.click( function(e) {

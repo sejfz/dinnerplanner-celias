@@ -5,23 +5,29 @@ var dishView = function (card, model) {
    
     //this.selected = document.getElementById("allTypes").options[document.getElementById("allTypes").selectedIndex].value;
     //    console.log(this.selected + "selected");
-    
+    //"https://spoonacular.com/recipeImages/'+dishes[i].image+'" style="height:120px;width:140px;"
     this.updatee = function (catchyName) {
         if (catchyName === "catchySubmit") {
             
-            
-            var tom;
-            var suparr = model.getAllDishes("all", "")
-            .then(function(dishes){
-                for (i in dishes){
-                    console.log(dishes[i])
-                }
-            })
-            console.log(suparr);
-            //console.log(suparr + "this is suparr");
-            var allName = card.find("#pic");
             var divList = [];
-            for (x in suparr){
+            var tom;
+            var allName = card.find("#pic");
+            model.getAllDishes("all", "")
+            .then(function(dishes){
+            
+            for (var i in dishes){
+                
+            
+            
+        
+            
+            console.log(dishes[i].title);
+            //console.log(suparr + "this is suparr");
+            //var allName = card.find("#pic");
+            
+            //for (x in suparr){
+                console.log("inne i update")
+                console.log(dishes[i])
                 var topdiv = document.createElement("div");
                 var elem = document.createElement("div");
                 var div2 = document.createElement("div");
@@ -36,7 +42,7 @@ var dishView = function (card, model) {
                 var classs = document.createAttribute("class");
                 var src = document.createAttribute("src");
 
-                var names = document.createTextNode(suparr[x].name);
+                var names = document.createTextNode(dishes[i].title);
 
                 cardid.value = "dishid";
                 divclass2.value = "card-body";
@@ -44,8 +50,8 @@ var dishView = function (card, model) {
                 divStyle.value =  "width: 13rem;";
                 p.value = "new thing";
                 classs.value = "card-img-top";
-                src.value = "images/" + suparr[x].image;
-
+                src.value = "https://spoonacular.com/recipeImages/" + dishes[i].image;
+                console.log(src.value)
 
                 topdiv.setAttribute("class", topclass.value);
                 topdiv.setAttribute("id", cardid.value);
@@ -63,7 +69,7 @@ var dishView = function (card, model) {
                 var goTo = document.createTextNode("Go to dish page");
                 goToClass.value = "btn btn-warning goToClass";
                 //goToId.value = "goToId";
-                goToValue.value = suparr[x].id;
+                //goToValue.value = dishes[x].id;
                 goToButton.setAttributeNode(goToClass);
                 //goToButton.setAttributeNode(goToId);
                 goToButton.setAttributeNode(goToValue);
@@ -78,8 +84,9 @@ var dishView = function (card, model) {
 
                 //console.log(topdiv);
 
-
+                console.log(divList)
                 divList.push(topdiv);
+                
             }
         /*var allTypes = card.find("#allTypes");
         console.log(allTypes)
@@ -96,14 +103,19 @@ var dishView = function (card, model) {
 
 
         //console.log(document.getElementById("allTypesSubmit"));
-
+                allName.html(divList);
             
-            allName.html(divList);
-            this.dishButton = card.find("#pic");
+            return divList;
+            
 
+        }
+            
+        )
+        
         }
 
     }
+    this.dishButton = card.find("#pic");
     /*var objectList = ["<option value=\"all\">All</option>"];
     var object = model.getAllTypes();
     var allTypes = card.find("#allTypes");
