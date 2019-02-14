@@ -10,6 +10,17 @@ var DinnerModel = function () {
     var chosenDish;
     var allDishesAPI = [];
     
+    
+    var yourDish = {
+        'id': -1,
+        'name': "",
+        'image': "",
+        'summary': "",
+        'ingredients': [],
+        'price': 0,
+        'preparation': []
+    };
+    
     // console.log(listObservers);
 
     
@@ -224,7 +235,14 @@ var DinnerModel = function () {
     this.allDishesEver = function(){
         return dishes;
     }
-    
+    this.getDishById = function(id){
+        return fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/'+id+'/information', {
+            headers:{'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767'
+                    }
+      }).then(response => response.json())
+        .then(data => console.log(data))
+
+    }
 
     // fetch attempts go here babey
     
@@ -234,7 +252,9 @@ var DinnerModel = function () {
                     }
       }).then(response => response.json())
         .then(data => console.log(data.results))
-    } 
+    }
+    
+    
 
 }
 
@@ -246,7 +266,7 @@ var DinnerModel = function () {
 	// defining the unit i.e. "g", "slices", "ml". Unit
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-	var dishes = [{
+	/*var dishes = [{
 		'id':1,
 		'name':'French toast',
 		'type':'starter',
@@ -487,4 +507,4 @@ var DinnerModel = function () {
 			'price':6
 			}]
 		}
-	];
+	];*/

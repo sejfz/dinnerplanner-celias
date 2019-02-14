@@ -15,7 +15,7 @@ var displayView = function (container, model) {
             
             str = chosen.name;
             str2 = chosen.description;
-            str3 = "<img src=\"images/" + chosen.image + "\">";
+            str3 = "<img src=\"" + chosen.image + "\">";
 
             getName.html(str);
             getInstr.html(str2);
