@@ -152,39 +152,39 @@ var DinnerModel = function () {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-    //this.getAllDishes = function(type,filter) {
-      //  if (type === "all") {
-        //    var allTypes = this.getAllTypes();
-          //  var fullList = [];
-        //    var finalArray = [];
-        //    for (thing in allTypes) {
-          //      fullList.push(this.getAllDishes(allTypes[thing], filter));
-        //    }
-          //  for (arrays in fullList) {
-            //    finalArray = finalArray.concat(fullList[arrays]);
-                // console.log(finalArray);
+    /*this.getAllDishes = function(type,filter) {
+        if (type === "all") {
+            var allTypes = this.getAllTypes();
+            var fullList = [];
+            var finalArray = [];
+            for (thing in allTypes) {
+                fullList.push(this.getAllDishes(allTypes[thing], filter));
+            }
+            for (arrays in fullList) {
+                finalArray = finalArray.concat(fullList[arrays]);
+                 console.log(finalArray);
 
-            //}
-            //return finalArray;
-    //    }
-	  //return dishes.filter(function(dish) {
-	//	let found = true;
-	//	if(filter){
-	//		found = false;
-	//		dish.ingredients.forEach(function(ingredient) {
-	//			if(ingredient.name.indexOf(filter)!=-1) {
-	//				found = true;
-	//			}
-	//		});
-	//		if(dish.name.indexOf(filter) != -1)
-	//		{
-	//			found = true;
-	//		}
-	//	}
-	  //	return dish.type == type && found;
-	  //});	
+            }
+            return finalArray;
+        }
+	  return dishes.filter(function(dish) {
+		let found = true;
+		if(filter){
+			found = false;
+			dish.ingredients.forEach(function(ingredient) {
+				if(ingredient.name.indexOf(filter)!=-1) {
+					found = true;
+				}
+			});
+			if(dish.name.indexOf(filter) != -1)
+			{
+				found = true;
+			}
+		}
+	  	return dish.type == type && found;
+	  });	
 
-	//}
+	}*/
     
     this.setAllDishes = function(type) {
         filterWord = type;
@@ -235,25 +235,37 @@ var DinnerModel = function () {
     this.allDishesEver = function(){
         return dishes;
     }
+    
+    
+    this.newDishList = function(arr) {
+        for (dish in arr){
+            console.log(arr[dish].id)
+            var newItem = this.getDishById(arr[dish].id);
+            console.log(newItem)
+        }
+    }
+    
+    
     this.getDishById = function(id){
         return fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/'+id+'/information', {
             headers:{'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767'
                     }
       }).then(response => response.json())
         .then(data => console.log(data))
-
     }
 
     // fetch attempts go here babey
     
     this.getAllDishes = function (type, filter) {
-        return fetch('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query='+filter+'&type'+type+'number=60',  {
+        var fetchLink;
+        fetchLink = 'http://sunset.nada.kth.se:8080/iprog/group/51/recipes/search?query='+filter+'&type'+type+'number=60'
+        
+        return fetch(fetchLink,  {
             headers:{'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767'
                     }
       }).then(response => response.json())
-        .then(data => console.log(data.results))
+        .then(data => data.results)
     }
-    
     
 
 }

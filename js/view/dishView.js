@@ -11,7 +11,13 @@ var dishView = function (card, model) {
             
             
             var tom;
-            var suparr = model.getAllDishes2();
+            var suparr = model.getAllDishes("all", "")
+            .then(function(dishes){
+                for (i in dishes){
+                    console.log(dishes[i])
+                }
+            })
+            console.log(suparr);
             //console.log(suparr + "this is suparr");
             var allName = card.find("#pic");
             var divList = [];
@@ -91,9 +97,8 @@ var dishView = function (card, model) {
 
         //console.log(document.getElementById("allTypesSubmit"));
 
-
+            
             allName.html(divList);
-            console.log(card.find("#pic"))
             this.dishButton = card.find("#pic");
 
         }

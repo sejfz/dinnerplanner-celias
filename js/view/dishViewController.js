@@ -14,6 +14,7 @@ var dishController = function (view, model) {
         var f = model.getAllDishes(this.selected, this.filterId);
         console.log(f)
         model.setAllDishes(f);
+        console.log(model.newDishList(f))
     })
     //console.log(view.dishButton)
     view.dishButton.click( function(e) {
