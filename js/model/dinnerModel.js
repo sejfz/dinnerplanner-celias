@@ -26,7 +26,7 @@ var DinnerModel = function () {
     
     this.addObserver = function(o) {
         listObservers.push(o);
-        console.log("lägg till observer")
+        //console.log("lägg till observer")
     }
 
     
@@ -245,16 +245,17 @@ var DinnerModel = function () {
         }
     }
     
+
+    // fetch attempts go here babey
     
     this.getDishById = function(id){
-        return fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/'+id+'/information', {
+        return fetch('http://sunset.nada.kth.se:8080/iprog/group/51/recipes/684100/summary', {
             headers:{'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767'
                     }
       }).then(response => response.json())
         .then(data => console.log(data))
     }
 
-    // fetch attempts go here babey
     
     this.getAllDishes = function (type, filter) {
         var fetchLink;
@@ -268,6 +269,7 @@ var DinnerModel = function () {
     }
     
 
+    
 }
 
 	// the dishes variable contains an array of all the 

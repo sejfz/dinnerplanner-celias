@@ -15,7 +15,7 @@ var selectedView = function (card, model) {
             var divList = [];
             var suparr = model.getAllSelected();
             var guests = model.getNumberOfGuests();
-            console.log(guests)
+            //console.log(guests)
             for (x in suparr){
 
                 var topdiv = document.createElement("div");
