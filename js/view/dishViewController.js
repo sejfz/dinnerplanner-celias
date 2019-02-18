@@ -7,21 +7,25 @@ var dishController = function (view, model) {
     var newList = [];
     view.submitButton.click( function() {
      //   alert("jag funkar");
+        document.getElementById("loader").style.display = "block";
         this.filterId = document.getElementById("filterInput").value;
         this.selected = document.getElementById("allTypes").value;
         //console.log(model.getDishById());
-        /*var f = model.getAllDishes(this.selected, this.filterId)
+        var f = model.getAllDishes(this.selected, this.filterId)
         .then(function(dishes){
-            
+            newList = [];
             for (i in dishes){
                 newList.push(dishes[i]);
             }
+            var creps = model.setAllDishes(newList);
+            document.getElementById("loader").style.display = "none";
+            return creps;
         
         })
         console.log(newList)
         console.log(f + "snap")
-        model.setAllDishes(newList);
-        //console.log(model.newDishList(f))*/
+        
+        //console.log(model.newDishList(f))
         view.updatee("catchySubmit");
     })
     //console.log(view.dishButton)

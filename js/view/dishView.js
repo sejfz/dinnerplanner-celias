@@ -12,22 +12,21 @@ var dishView = function (card, model) {
             var divList = [];
             var tom;
             var allName = card.find("#pic");
-            model.getAllDishes("all", "")
-            .then(function(dishes){
+            var suparr = model.getAllDishes2();
+            //.then(function(dishes){
             
-            for (var i in dishes){
+            //for (var i in dishes){
                 
             
             
         
             
-            console.log(dishes[i].title);
-            //console.log(suparr + "this is suparr");
+            //console.log(dishes[i].title);
+            console.log(suparr + "this is suparr");
             //var allName = card.find("#pic");
             
-            //for (x in suparr){
-                console.log("inne i update")
-                console.log(dishes[i])
+            for (x in suparr){
+                console.log(suparr[x])
                 var topdiv = document.createElement("div");
                 var elem = document.createElement("div");
                 var div2 = document.createElement("div");
@@ -42,7 +41,7 @@ var dishView = function (card, model) {
                 var classs = document.createAttribute("class");
                 var src = document.createAttribute("src");
 
-                var names = document.createTextNode(dishes[i].title);
+                var names = document.createTextNode(suparr[x].title);
 
                 cardid.value = "dishid";
                 divclass2.value = "card-body";
@@ -50,7 +49,7 @@ var dishView = function (card, model) {
                 divStyle.value =  "width: 13rem;";
                 p.value = "new thing";
                 classs.value = "card-img-top";
-                src.value = "https://spoonacular.com/recipeImages/" + dishes[i].image;
+                src.value = "https://spoonacular.com/recipeImages/" + suparr[x].image;
                 console.log(src.value)
 
                 topdiv.setAttribute("class", topclass.value);
@@ -103,14 +102,15 @@ var dishView = function (card, model) {
 
 
         //console.log(document.getElementById("allTypesSubmit"));
+                
                 allName.html(divList);
             
-            return divList;
+            //return divList;
             
 
-        }
+        
             
-        )
+        
         
         }
 
