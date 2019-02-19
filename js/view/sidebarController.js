@@ -6,7 +6,6 @@ var sidebarController = function (view, model) {
     var finalPage = document.getElementById("finalPage");
     var ingred = document.getElementById("ingredView");
     var display = document.getElementById("displayView");
-
     
     view.plusGuestButton.click(function(){
         model.setNumberOfGuests(model.getNumberOfGuests() + 1);
@@ -16,6 +15,13 @@ var sidebarController = function (view, model) {
         model.setNumberOfGuests(model.getNumberOfGuests() - 1);
     });
 
+    view.removeButton.click(function(e){
+        var dishId = e.target.value;
+        var selectedList = model.getAllSelected();
+        model.removeDishFromMenu(dishId, selectedList);
+        
+    });
+    
     view.confirmButton.click(function(){
         ingred.style.display = "none";
         display.style.display = "none";

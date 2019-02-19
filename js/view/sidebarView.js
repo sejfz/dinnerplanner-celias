@@ -33,11 +33,27 @@ var sidebarView = function(container, model) {
                 xname.appendChild(nameOfDish);
                 var nameColId = document.createAttribute("id");
                 var nameColClass = document.createAttribute("class");
-                nameColClass.value = "col-6";
+                nameColClass.value = "col-4";
                 nameCol.setAttribute("class", nameColClass.value);
                 nameCol.appendChild(xname);
                 tempRow.appendChild(nameCol);
-
+                
+                var removeButton = document.createElement("button");
+                var removeType = document.createAttribute("type");
+                var removeClass = document.createAttribute("class");
+                var removeValue = document.createAttribute("value");
+                var removeText = document.createTextNode("Remove");
+                removeType.value = "button";
+                removeClass.value = "btn btn-warning removeButtonClass col-sm-4";
+                removeValue.value = allSelected[x].id;
+                removeButton.setAttributeNode(removeClass);
+                removeButton.setAttributeNode(removeValue);
+                removeButton.setAttributeNode(removeType);
+                removeButton.appendChild(removeText);
+                tempRow.appendChild(removeButton);
+                
+                
+                
                 var singleDish = [allSelected[x]];
                 var totalPrice = model.getTotalMenuPrice(singleDish);
 
@@ -46,7 +62,7 @@ var sidebarView = function(container, model) {
                 var priceCalc = document.createTextNode(totalPrice);
                 var priceColId = document.createAttribute("id");
                 var priceColClass = document.createAttribute("class");
-                priceColClass.value = "col-6";
+                priceColClass.value = "col-4";
                 priceCol.setAttribute("class", priceColClass.value);
                 priceCol.setAttribute("align", "right");
                 xprice.appendChild(priceCalc);
@@ -63,6 +79,7 @@ var sidebarView = function(container, model) {
         }
         
     }
+    this.removeButton = container.find("#menuDishes");
     updateNumber("guestsUpdated");
     model.addObserver(updateNumber);
 }

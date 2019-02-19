@@ -32,14 +32,14 @@ var anotherView = function (container, model) {
 
                 var imgdiv = document.createElement("div");
                 var colatt = document.createAttribute("class");
-                colatt.value = "col-sm-4";
+                colatt.value = "col-sm";
                 imgdiv.setAttribute("class", colatt.value);
                 row.appendChild(imgdiv);
 
                 var img = document.createElement("img");
                 var imgId = document.createAttribute("id");
                 var src = document.createAttribute("src");
-                src.value = "images/" + Menu[x].image;
+                src.value = Menu[x].image;
                 imgId.value = "nicePic";
                 img.setAttribute("src", src.value);
                 img.setAttribute("id", imgId.value);
@@ -66,7 +66,7 @@ var anotherView = function (container, model) {
                 infodiv.appendChild(name);
                 infodiv.appendChild(ingredients);
 
-                var description = document.createTextNode(Menu[x].description);
+                var description = document.createTextNode(Menu[x].preparation);
                 var nameOfDish = document.createTextNode(Menu[x].name);
                 name.appendChild(nameOfDish);
 

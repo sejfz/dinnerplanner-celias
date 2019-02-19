@@ -69,3 +69,11 @@
 .navbar-collapse.collapse.in {
   display: block!important;
 }
+
+.removeButtonClass {
+    height: 50px;
+}
+
+#info {
+    justify-content: space-between;
+}

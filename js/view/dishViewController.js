@@ -36,7 +36,7 @@ var dishController = function (view, model) {
         var currentDish = model.getDishById(dishId)
         .then(function(obj){
             console.log(obj)
-            var chosen = model.setDisplayDish(obj);
+            var chosen = model.setDisplayDish(obj, this.selected);
             document.getElementById("displayLoader").style.display = "none";
             return chosen;
         })

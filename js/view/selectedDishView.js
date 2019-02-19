@@ -47,7 +47,7 @@ var selectedView = function (card, model) {
                 divStyle.value =  "width: 13rem;"
                 p.value = "new thing";
                 classs.value = "card-img-top";
-                src.value = "images/" + suparr[x].image;
+                src.value = suparr[x].image;
                 priceClass.value = "col";
 
                 topdiv.setAttribute("class", topclass.value);

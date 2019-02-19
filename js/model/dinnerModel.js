@@ -106,8 +106,9 @@ var DinnerModel = function () {
         var ingList = this.getAllIngredients(list);
         var totPrice = 0;
         for(dish in ingList){
-            var prices = ingList[dish].price;
-            totPrice += prices;
+            //var prices = ingList[dish].price;
+            //totPrice += prices;
+            totPrice += 1;
         }
         totPrice = totPrice * this.getNumberOfGuests();
         return totPrice + " SEK";
@@ -117,14 +118,14 @@ var DinnerModel = function () {
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
+	this.addDishToMenu = function(id, arr) {
         var newDish;
         
-        for (dish in dishes){
-            if (dishes[dish].id === id) {
-                newDish = dishes[dish];
+        for (dish in arr){
+            if (arr[dish].id === id) {
+                newDish = yourDish;
                 for (dish in dishList){
-                    if (dishList[dish].type === newDish.type){
+                    if (dishList[dish].id === newDish.id){
                         this.removeDishFromMenu(dishList[dish].id, dishList);
                     }
                 }
@@ -138,12 +139,15 @@ var DinnerModel = function () {
     
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id, arr) {
-
+        console.log(id)
+        console.log(arr)
         for(dish in arr){
-            if(id === arr[dish].id){
+            console.log(arr[dish].id)
+            if(id == arr[dish].id){
                 arr.splice(dish, 1);
             }
         }
+        notifyObservers("menuUpdated");
         return arr;
 	}
 
@@ -277,7 +281,7 @@ var DinnerModel = function () {
         notifyObservers("updateCurrentDish");
 
         return fetch('http://sunset.nada.kth.se:8080/iprog/group/51/recipes/'+id+'/information', {
-            headers:{'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767'
+            headers:{'X-Mashape-Key': ourKey.theApi
                     }
       }).then(response => response.json())
         .then(data => data)
@@ -289,7 +293,7 @@ var DinnerModel = function () {
         fetchLink = 'http://sunset.nada.kth.se:8080/iprog/group/51/recipes/search?query='+filter+'&type='+type+'&number=10'
         console.log(fetchLink);
         return fetch(fetchLink,  {
-            headers:{'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767'
+            headers:{'X-Mashape-Key': ourKey.theApi
                     }
       }).then(response => response.json())
         .then(data => data.results)
