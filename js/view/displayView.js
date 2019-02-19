@@ -12,11 +12,12 @@ var displayView = function (container, model) {
 
             var chosen = model.getDisplayDish();
             
-            
+            console.log(chosen.preparation)
+            console.log(chosen.ingredients)
             str = chosen.name;
-            str2 = chosen.description;
-            str3 = "<img src=\"" + chosen.image + "\">";
-
+            str2 = chosen.preparation;
+            str3 = "<img src=\""+ chosen.image +"\">";
+            
             getName.html(str);
             getInstr.html(str2);
             getPic.html(str3);

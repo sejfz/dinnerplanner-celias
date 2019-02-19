@@ -11,19 +11,19 @@ var dishController = function (view, model) {
         this.filterId = document.getElementById("filterInput").value;
         this.selected = document.getElementById("allTypes").value;
         //console.log(model.getDishById());
-        var f = model.getAllDishes(this.selected, this.filterId)
+        model.getAllDishes(this.selected, this.filterId)
         .then(function(dishes){
             newList = [];
             for (i in dishes){
                 newList.push(dishes[i]);
             }
-            var creps = model.setAllDishes(newList);
+            var setDish = model.setAllDishes(newList);
             document.getElementById("loader").style.display = "none";
-            return creps;
+            return setDish;
         
         })
-        console.log(newList)
-        console.log(f + "snap")
+        //console.log(newList)
+
         
         //console.log(model.newDishList(f))
         view.updatee("catchySubmit");
@@ -31,8 +31,16 @@ var dishController = function (view, model) {
     //console.log(view.dishButton)
     view.dishButton.click( function(e) {
         //alert(e.target.value);
+        document.getElementById("displayLoader").style.display = "block";
         var dishId = e.target.value;
-        var chosen = model.setDisplayDish(dishId);
+        var currentDish = model.getDishById(dishId)
+        .then(function(obj){
+            console.log(obj)
+            var chosen = model.setDisplayDish(obj);
+            document.getElementById("displayLoader").style.display = "none";
+            return chosen;
+        })
+        ;
         display.style.display = "inline";
         foodFeed.style.display = "none";
         ingredients.style.display = "inline";

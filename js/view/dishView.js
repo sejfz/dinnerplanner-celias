@@ -22,11 +22,11 @@ var dishView = function (card, model) {
         
             
             //console.log(dishes[i].title);
-            console.log(suparr + "this is suparr");
+            //console.log(suparr + "this is suparr");
             //var allName = card.find("#pic");
             
             for (x in suparr){
-                console.log(suparr[x])
+                //console.log(suparr[x])
                 var topdiv = document.createElement("div");
                 var elem = document.createElement("div");
                 var div2 = document.createElement("div");
@@ -50,7 +50,7 @@ var dishView = function (card, model) {
                 p.value = "new thing";
                 classs.value = "card-img-top";
                 src.value = "https://spoonacular.com/recipeImages/" + suparr[x].image;
-                console.log(src.value)
+                //console.log(src.value)
 
                 topdiv.setAttribute("class", topclass.value);
                 topdiv.setAttribute("id", cardid.value);
@@ -68,7 +68,7 @@ var dishView = function (card, model) {
                 var goTo = document.createTextNode("Go to dish page");
                 goToClass.value = "btn btn-warning goToClass";
                 //goToId.value = "goToId";
-                //goToValue.value = dishes[x].id;
+                goToValue.value = suparr[x].id;
                 goToButton.setAttributeNode(goToClass);
                 //goToButton.setAttributeNode(goToId);
                 goToButton.setAttributeNode(goToValue);
@@ -83,7 +83,7 @@ var dishView = function (card, model) {
 
                 //console.log(topdiv);
 
-                console.log(divList)
+                //console.log(suparr[x].id + "id")
                 divList.push(topdiv);
                 
             }

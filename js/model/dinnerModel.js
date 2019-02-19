@@ -15,7 +15,6 @@ var DinnerModel = function () {
         'id': -1,
         'name': "",
         'image': "",
-        'summary': "",
         'ingredients': [],
         'price': 0,
         'preparation': []
@@ -199,23 +198,40 @@ var DinnerModel = function () {
     
 
 	//function that returns a dish of specific ID
-	this.getDish = function (id) {
-        for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
+	this.getDish = function (id, arr) {
+        for(var key in arr){
+			if(arr[key].id == id) {
+				return arr[key];
 			}
 		}
 	}
     
     
-    this.setDisplayDish = function(id) {
-        chosenDish = this.getDish(id);
+    this.setDisplayDish = function(obj) {
+        yourDish.id = obj.id;
+        yourDish.name = obj.title;
+        yourDish.image = obj.image;
+        yourDish.ingredients = obj.extendedIngredients;
+        var cost = 0;
+        for (var ing in obj.extendedIngredients){
+            cost += 1;
+        }
+        yourDish.price = cost;
+        yourDish.preparation = obj.instructions;
         notifyObservers("updateCurrentDish");
     }
-    
+    /*var yourDish = {
+        'id': -1,
+        'name': "",
+        'image': "",
+        'summary': "",
+        'ingredients': [],
+        'price': 0,
+        'preparation': []
+    };*/
     
     this.getDisplayDish = function() {
-        return chosenDish;
+        return yourDish;
         
     }
     
@@ -248,8 +264,19 @@ var DinnerModel = function () {
 
     // fetch attempts go here babey
     
-    this.getDishById = function(){
-        return fetch('http://sunset.nada.kth.se:8080/iprog/group/51/recipes/684100/summary', {
+    this.getDishById = function(id){
+        yourDish = {
+            'id': -1,
+            'name': "",
+            'image': "",
+            'summary': "",
+            'ingredients': [],
+            'price': 0,
+            'preparation': []
+        };
+        notifyObservers("updateCurrentDish");
+
+        return fetch('http://sunset.nada.kth.se:8080/iprog/group/51/recipes/'+id+'/information', {
             headers:{'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767'
                     }
       }).then(response => response.json())
