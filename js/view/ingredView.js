@@ -3,6 +3,7 @@ var ingredView = function (card, model) {
     var allIngredients = card.find("#ingredientList");
     this.addToMenu = card.find("#addToMenu");
     var getPeople = card.find("#numpeep");
+    
     this.updateIngredients = function (keyString) {
         if (keyString === "updateIngredients" || keyString === "guestsUpdated" || keyString === "updateCurrentDish"){
             
@@ -16,7 +17,7 @@ var ingredView = function (card, model) {
                 var numguest = model.getNumberOfGuests();
                 for (x in arr) {
                     str += numguest * arr[x].amount + " " + arr[x].unit + " " + arr[x].name + " " + numguest + " SEK" + "<br/>";
-                    }
+                }
 
                 str += "<strong> Total: " + model.getTotalMenuPrice([currentDish]) + "</strong>";
                 str2 = numguest;
@@ -25,6 +26,7 @@ var ingredView = function (card, model) {
             }
         }
     }
+    
     this.updateIngredients("updateIngredients")
     model.addObserver(this.updateIngredients);
 

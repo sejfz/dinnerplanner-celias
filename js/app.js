@@ -24,9 +24,6 @@ $(function() {
     
     var container10 = $("#selectedDishView")
     var selView = new selectedView(container10, model);
-
-    var container4 = $("#topVie")
-    var topp = new topView(container4, model);
     
     var container7 = $("#totcostView")
     var TotCostView = new totcostView(container7, model);

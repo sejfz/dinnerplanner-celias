@@ -20,17 +20,13 @@ var DinnerModel = function () {
         'preparation': []
     };
     
-    // console.log(listObservers);
-
     
     this.addObserver = function(o) {
         listObservers.push(o);
-        //console.log("lägg till observer")
     }
 
     
     var notifyObservers = function(object) {
-        // console.log(object);
         for(var thisObserver = 0; thisObserver < listObservers.length; thisObserver++){
             listObservers[thisObserver](object);
         }
@@ -65,9 +61,7 @@ var DinnerModel = function () {
             if (type === dishes.type) {
                 listNames.push(dishes[x]);
         }
-            // console.log(listNames);
         }
-        // console.log(listNames);
         return listNames;
         
 	}
@@ -106,8 +100,6 @@ var DinnerModel = function () {
         var ingList = this.getAllIngredients(list);
         var totPrice = 0;
         for(dish in ingList){
-            //var prices = ingList[dish].price;
-            //totPrice += prices;
             totPrice += 1;
         }
         totPrice = totPrice * this.getNumberOfGuests();
@@ -132,17 +124,13 @@ var DinnerModel = function () {
                 dishList.push(newDish);
             }
         }
-        console.log(dishList)
         notifyObservers("menuUpdated");
     }
     
     
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id, arr) {
-        console.log(id)
-        console.log(arr)
         for(dish in arr){
-            console.log(arr[dish].id)
             if(id == arr[dish].id){
                 arr.splice(dish, 1);
             }
@@ -165,7 +153,6 @@ var DinnerModel = function () {
             }
             for (arrays in fullList) {
                 finalArray = finalArray.concat(fullList[arrays]);
-                 console.log(finalArray);
 
             }
             return finalArray;
@@ -259,9 +246,7 @@ var DinnerModel = function () {
     
     this.newDishList = function(arr) {
         for (dish in arr){
-            console.log(arr[dish].id)
             var newItem = this.getDishById(arr[dish].id);
-            console.log(newItem)
         }
     }
     
@@ -291,7 +276,6 @@ var DinnerModel = function () {
     this.getAllDishes = function (type, filter) {
         var fetchLink;
         fetchLink = 'http://sunset.nada.kth.se:8080/iprog/group/51/recipes/search?query='+filter+'&type='+type+'&number=10'
-        console.log(fetchLink);
         return fetch(fetchLink,  {
             headers:{'X-Mashape-Key': ourKey.theApi
                     }

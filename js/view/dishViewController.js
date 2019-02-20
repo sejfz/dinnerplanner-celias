@@ -21,14 +21,13 @@ var dishController = function (view, model, app) {
         })
 
         
-        view.updatee("catchySubmit");
+        view.updateDishes("catchySubmit");
     })
     view.dishButton.click( function(e) {
         document.getElementById("displayLoader").style.display = "block";
         var dishId = e.target.value;
         var currentDish = model.getDishById(dishId)
         .then(function(obj){
-            console.log(obj)
             var chosen = model.setDisplayDish(obj, this.selected);
             document.getElementById("displayLoader").style.display = "none";
             return chosen;

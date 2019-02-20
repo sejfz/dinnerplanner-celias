@@ -3,135 +3,75 @@ var dishView = function (card, model) {
 	
     var x;
    
-    //this.selected = document.getElementById("allTypes").options[document.getElementById("allTypes").selectedIndex].value;
-    //    console.log(this.selected + "selected");
-    //"https://spoonacular.com/recipeImages/'+dishes[i].image+'" style="height:120px;width:140px;"
-    this.updatee = function (catchyName) {
-        if (catchyName === "catchySubmit") {
+    this.updateDishes = function (keyString) {
+        if (keyString === "catchySubmit") {
             
             var divList = [];
-            var tom;
             var allName = card.find("#pic");
-            var suparr = model.getAllDishes2();
-            //.then(function(dishes){
-            
-            //for (var i in dishes){
-                
-            
-            
-        
-            
-            //console.log(dishes[i].title);
-            //console.log(suparr + "this is suparr");
-            //var allName = card.find("#pic");
-            
-            for (x in suparr){
-                //console.log(suparr[x])
+            var allDishList = model.getAllDishes2();
+                       
+            for (x in allDishList){
                 var topdiv = document.createElement("div");
                 var elem = document.createElement("div");
                 var div2 = document.createElement("div");
                 var img = document.createElement("img");
-                var p = document.createElement("h4");
+                var dishName = document.createElement("h4");
 
-                var cardid = document.createAttribute("id");
+                var cardId = document.createAttribute("id");
                 var topclass = document.createAttribute("class");
-                var divclass2 = document.createAttribute("class");
                 var divclass = document.createAttribute("class");
                 var divStyle = document.createAttribute("style");
-                var classs = document.createAttribute("class");
+                var imgClass = document.createAttribute("class");
                 var src = document.createAttribute("src");
 
-                var names = document.createTextNode(suparr[x].title);
+                var names = document.createTextNode(allDishList[x].title);
 
-                cardid.value = "dishid";
-                divclass2.value = "card-body";
+                cardId.value = "dishid";
                 divclass.value = "card";
                 divStyle.value =  "width: 13rem;";
-                p.value = "new thing";
-                classs.value = "card-img-top";
-                src.value = "https://spoonacular.com/recipeImages/" + suparr[x].image;
-                //console.log(src.value)
+                imgClass.value = "card-img-top";
+                src.value = "https://spoonacular.com/recipeImages/" + allDishList[x].image;
 
                 topdiv.setAttribute("class", topclass.value);
-                topdiv.setAttribute("id", cardid.value);
-                //elem.setAttribute("class", divclass.value);
+                topdiv.setAttribute("id", cardId.value);
                 topdiv.setAttribute("style", divStyle.value);
                 div2.setAttribute("class", divclass.value);
 
                 img.setAttribute("src", src.value);
-                img.setAttribute("class", classs.value);
+                img.setAttribute("class", imgClass.value);
                 
                 var goToButton = document.createElement("button");
                 var goToClass = document.createAttribute("class");
                 var goToValue = document.createAttribute("value");
-                //var goToId = document.createAttribute("id");
                 var goTo = document.createTextNode("Go to dish page");
                 goToClass.value = "btn btn-warning goToClass";
-                //goToId.value = "goToId";
-                goToValue.value = suparr[x].id;
+                goToValue.value = allDishList[x].id;
                 goToButton.setAttributeNode(goToClass);
-                //goToButton.setAttributeNode(goToId);
                 goToButton.setAttributeNode(goToValue);
                 goToButton.appendChild(goTo);
                 div2.appendChild(goToButton);
 
                 topdiv.appendChild(elem);        
-                p.appendChild(names);
+                dishName.appendChild(names);
                 elem.appendChild(img);        
                 elem.appendChild(div2);
-                div2.appendChild(p);
+                div2.appendChild(dishName);
 
-                //console.log(topdiv);
-
-                //console.log(suparr[x].id + "id")
                 divList.push(topdiv);
                 
             }
-        /*var allTypes = card.find("#allTypes");
-        console.log(allTypes)
-        var object = model.getAllTypes();
-        var select = document.createElement("select");
-        var option = document.createElement("option");
-        var optionValue = document.createAttribute("value");
-        var optionName = document.createTextNode("All");
-        optionValue.value = "all"
-        option.setAttribute("value", optionValue.value);
-        option.appendChild(optionName);
-        select.appendChild(option);*/
-
-
-
-        //console.log(document.getElementById("allTypesSubmit"));
-                
-                allName.html(divList);
-            
-            //return divList;
-            
-
-        
-            
-        
+            if (allDishList === undefined || allDishList.length == 0) {
+                var errMessage = "No results found, please try again";
+                divList.push(errMessage)
+            } 
+            allName.html(divList);
         
         }
 
     }
     this.dishButton = card.find("#pic");
-    /*var objectList = ["<option value=\"all\">All</option>"];
-    var object = model.getAllTypes();
-    var allTypes = card.find("#allTypes");
-    for (stuff in object){
-        var option = document.createElement("option");
-        var optionValue = document.createAttribute("value");
-        var optionName = document.createTextNode(object[stuff].charAt(0).toUpperCase() + object[stuff].slice(1));
-        optionValue.value = object[stuff];
-        option.setAttribute("value", optionValue.value);
-        option.appendChild(optionName);
-        objectList.push(option);
-        console.log(option)
-    }
-    allTypes.html(objectList);*/
 
     this.submitButton = card.find("#allTypesSubmit");
-    model.addObserver(this.updatee);
+    model.addObserver(this.updateDishes);
 }
  
