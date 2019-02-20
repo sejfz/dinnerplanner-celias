@@ -22,6 +22,9 @@ var dishController = function (view, model) {
             return setDish;
         
         })
+        .catch(function(err){
+            alert("Sorry, following error occured: " + err)
+        })
         //console.log(newList)
 
         
