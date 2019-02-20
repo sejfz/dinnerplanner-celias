@@ -1,23 +1,10 @@
-var selectedDishViewController = function (view, model) {
-    var sideb = document.getElementById("sidebar");
-    var foodFeed = document.getElementById("dishView");
-    var finalPage = document.getElementById("finalPage");
-    var ingred = document.getElementById("ingredView");
-    var display = document.getElementById("displayView");
-    var another = document.getElementById("summaryView");
+var selectedDishViewController = function (view, model, app) {
     
     view.goBack.click(function(){
-        ingred.style.display = "none";
-        display.style.display = "none";
-        sideb.style.display = "inline";
-        foodFeed.style.display = "inline";
-        finalPage.style.display = "none";
+        app.showDishes();
     })
     
     view.printMenu.click(function(){
-        ingred.style.display = "none";
-        display.style.display = "none";
-        another.style.display = "inline";
-        finalPage.style.display = "none";
+        app.showPrint();
     })
 }

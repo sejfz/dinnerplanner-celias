@@ -1,16 +1,9 @@
-var homeController = function (view, model, view2) {
-	
-
-    var first = document.getElementById("firstView");
-    var sideb = document.getElementById("sidebar");
-    var foodFeed = document.getElementById("dishView");
+var homeController = function (view, model, view2, app) {
 
 
-    view.buttonClick().addEventListener("click", function(){
-        first.style.display = "none";
-        sideb.style.display = "inline";
-        foodFeed.style.display = "inline";
+    view.firstButton.click(function(){
+        app.showDishes();
         view2.submitButton.click();
-        } , false);
+        });
 
 }

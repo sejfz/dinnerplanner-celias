@@ -33,13 +33,48 @@ $(function() {
     
     // Controllers here
     
-	var homePageController = new homeController(firstPageView, model, fullMenu);
-	var dishViewbController = new dishController(fullMenu, model);
-	var sidebController = new sidebarController(sideb, model);
-    var displayController = new displayViewController(displayV, model);
-    var ingredientController = new ingredientViewController(IngredientView, model);
-    var selectedDishController = new selectedDishViewController(selView, model);
-    var anotherController = new anotherViewController(otherView, model);
+	var homePageController = new homeController(firstPageView, model, fullMenu, this);
+	var dishViewbController = new dishController(fullMenu, model, this);
+	var sidebController = new sidebarController(sideb, model, this);
+    var displayController = new displayViewController(displayV, model, this);
+    var ingredientController = new ingredientViewController(IngredientView, model, this);
+    var selectedDishController = new selectedDishViewController(selView, model, this);
+    var anotherController = new anotherViewController(otherView, model, this);
 
     
+    //hide or show
+    this.hideAll = function () {
+        document.getElementById("firstView").style.display = "none";
+        document.getElementById("displayView").style.display = "none";
+        document.getElementById("ingredView").style.display = "none";
+        document.getElementById("finalPage").style.display = "none";    
+        document.getElementById("dishView").style.display = "none";
+        document.getElementById("sidebar").style.display = "none";
+        document.getElementById("summaryView").style.display = "none";
+    }
+    
+    this.showDishes = function() {
+        this.hideAll();
+        document.getElementById("sidebar").style.display = "inline";
+        document.getElementById("dishView").style.display = "inline";
+    }
+    
+    this.showSelectedDish = function() {
+        this.hideAll();
+        document.getElementById("sidebar").style.display = "inline";
+        document.getElementById("displayView").style.display = "inline";
+        document.getElementById("ingredView").style.display = "inline";
+    }
+    
+    this.showPrint = function() {
+        this.hideAll();
+        document.getElementById("summaryView").style.display = "inline";
+    }
+    
+    this.showFinalPage = function(){
+        this.hideAll();
+        document.getElementById("finalPage").style.display = "inline";
+    }
+    
 });
+
