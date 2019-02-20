@@ -17,7 +17,7 @@ var dishController = function (view, model, app) {
         
         })
         .catch(function(err){
-            alert("Sorry, following error occured: " + err)
+            alert("Sorry, something went wrong while fetching the data. Please check your internet connection.")
         })
 
         
